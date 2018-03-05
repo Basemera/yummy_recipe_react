@@ -24,7 +24,6 @@ class LogIn extends Component {
         this.props.history.push('/view-categories')
       })
       .catch(function (error) {
-        console.log('here', error.response);
       });
   }
   render() {
