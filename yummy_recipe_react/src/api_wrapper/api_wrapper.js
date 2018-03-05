@@ -5,13 +5,13 @@ let api = null
 const getInitialiseApi = () => {
     if (api) return api;
     api = axios.create({
-        baseurl:baseurl(),
+        baseURL:baseurl(),
         responseType: 'json'
     });
     return api;
 };
 
-const baseurl = () => "http://127.0.0.1:5000";
+const baseurl = () => "http://localhost:5000";
 
 export const get = (url, config = null) => getInitialiseApi().get(url, config)
 
