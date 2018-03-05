@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {notify} from 'react-notify-toast';
-import {Redirect} from 'react-router-dom';
+import toastr from 'toastr';
+import {Redirect, Link} from 'react-router-dom';
 import { deleteCategory, getCategories, editCategory } from '../../api_wrapper/categories';
 
 class EditCategory extends Component{
@@ -29,12 +30,15 @@ class EditCategory extends Component{
         // )
         .then((response) => {
           console.log(response.data);
+          toastr.success(response.data.message)
         //   this.props.getCats();
           this.props.history.push('/view-categories')
           this.setState({ successfuledit: true})
         })
         .catch((error) => {
           console.log(error.response);
+          toastr.error(error.response.data.message)
+          
         });
     }
      
@@ -56,7 +60,7 @@ class EditCategory extends Component{
                     </div>
           <div className="form-group"> 
                   <div className="col-sm-offset-5 col-sm-5">
-                  <button type="submit" className="btn btn-success">Edit</button>
+                  <button type="submit" className="btn btn-success">Edit</button> <Link to="/view-categories" className="btn btn-success">Cancel</Link>
           </div>
           </div>
     
