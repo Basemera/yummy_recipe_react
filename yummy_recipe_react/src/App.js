@@ -38,8 +38,6 @@ class App extends Component {
         <Route exact path ="/add-recipe/:category_id/:recipe_id" component={AddRecipe}/>
         <Route exact path ="/edit-recipe/:category/:recipe_id" component={EditRecipe}/>
         <Route exact path ="/delete-recipe/:category/:recipe_id" component={DeleteRecipe}/>
-        
-
       </Switch>
     </div>
   </BrowserRouter>

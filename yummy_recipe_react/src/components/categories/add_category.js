@@ -53,7 +53,14 @@ class AddCategory extends Component{
       
 <p> Add category</p>
 
-        <form className="form-group addcategory-form" onSubmit={this.onClick} name="add-category">
+<div class="row justify-content-center">
+        <form className="form-inline" onSubmit={this.onClick} name="add-category">
+            <input type="text"  value = {this.state.category_name} onChange = {this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+            <button type="submit" class="btn btn-primary mb-2 pxy-4">Save</button>
+    </form>
+    </div>
+
+        {/* <form className="form-group addcategory-form" onSubmit={this.onClick} name="add-category">
 
                 <div className="form-group" >
                 <label className="control-label col-sm-4" for="add-category">Category Name:</label>
@@ -66,7 +73,7 @@ class AddCategory extends Component{
       </div>
 
     
-  </form>
+  </form> */}
     </div>
 
 </div>

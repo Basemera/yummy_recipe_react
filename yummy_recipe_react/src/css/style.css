@@ -178,6 +178,7 @@ label.control-label {
   background: url('images/signup-image.jpg') no-repeat;
   background-size: cover;
   height: 1000px;
+  margin-top: 400px;
 }
 
 .no-categories {
@@ -199,12 +200,16 @@ label.control-label {
   padding-left: 500px;
   width: fit-content;
   height: fit-content;
+  margin-left: 400px;
+  margin-top: -100px;
 }
 
 .addcategory-form {
   background: url('images/restaurant_icons.png') no-repeat;
   font-family: 'Karla', sans-serif;
   font-size: 20px;
+  margin-right: 500px;
+  height:fit-content;
 }
 
 .view-categories-title {
@@ -296,4 +301,7 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.search-form{
+  margin-right: 100px;
 }

@@ -4,6 +4,7 @@ import {notify} from 'react-notify-toast';
 import {Redirect, Link} from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import {Grid, Row, Col, Thumbnail} from 'react-bootstrap'
 import AddCategory from './add_category';
 // import SearchCategory from './search'
 import { deleteCategory, getCategories, editCategory } from '../../api_wrapper/categories';
@@ -31,7 +32,21 @@ const CategoryToRender= (props)=>(
   </div>
 </div>
 </div>
-</div></div></div>
+</div></div>
+
+{/* <Grid>
+<Row>
+<Col xs={6} md={6}>
+      <Thumbnail src="/thumbnaildiv.png" alt="242x200">
+      <i className="fa fa-edit" onClick = {()=>props.OneditItem(props.category_id, props.category_name)}/>
+    <i className="fa fa-trash" onClick = {() => props.onDelete(props.category_id, props.category_name)} data-id={props.category_id}/>
+    <Link to='#' onClick = {() => props.onView(props.category_id)}>Recipes</Link>
+      </Thumbnail>
+      </Col>
+</Row>
+  </Grid> */}
+
+</div>
 )
 
 class ViewCategories extends Component{
@@ -63,8 +78,6 @@ class ViewCategories extends Component{
         onCancel: () => this.handleNo()
       }
     )
-    // this.props.history.push(`/delete-category/${category_id}`)
-    // this.props.history.push('/view-categories')
   }
 
   handleYes = (category_id) => {
@@ -136,13 +149,38 @@ onSearch = (event) => {
     category_id={categories.category_id} key={categories.category_id}
     />))
         return(
-<div>      
+<div>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a className="nav-item nav-link" href="/">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
   <div className = "view-categories-head">
     <div className = "view-categories-head">
     <div>
      
 <h4 className="categories-header"> Categories </h4>
-<div>
+<div className="container">
+<div className="row"> 
+<div className="col-6 row justify-content-center">
+        <form className="search-form" onSubmit={this.onSearch} name="search-category">
+            <input type="text"  value = {this.state.category_name} onChange = {this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+            <button type="submit" class="btn btn-primary mb-2 pxy-4">Search</button>
+    </form>
+    </div>
+{/* <div>
   
    <form className="" onSubmit = {this.onSearch} name="edit-category">
     <div className="form-group" >
@@ -156,10 +194,12 @@ onSearch = (event) => {
 </div>
 
 </form>
-     </div>
-<div className="add-category">
+     </div> */}
+<div className="col-6 add-category">
 <AddCategory getCats={this.onClick}/>
 
+</div>
+</div>
 </div>
 
 
