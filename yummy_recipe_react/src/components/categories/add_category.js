@@ -24,23 +24,21 @@ class AddCategory extends Component{
   onClick = event => {
     event.preventDefault();
     const {category_name} = this.state;
-    createCategory(category_name)
-    // axios.post('http://127.0.0.1:5000/category', {category_name, 
-    // headers:{'x-access-token':localStorage.getItem('token')}})
-    axios.post('http://127.0.0.1:5000/category', 
-    {category_name:this.state.category_name},
-    {headers:{'x-access-token':localStorage.getItem('token')}})
+    createCategory({category_name})
     .then((response) => {
-      console.log(response.data.message);
       toastr.success(response.data.message)
       this.props.getCats();
       this.props.history.push('/view-category')
       this.setState({ categoryaddedSuccess: true})
       
     })
-    .catch((error) => {
-      toastr.error(error.response.data.message)
-    });
+    .catch(function (error) {
+
+      if(error.response){
+        const { data:{message} } = error.response;
+        toastr.error(message)
+    }
+    }); 
     this.setState({
         category_name: '',
         categoryaddedSuccess: false,
@@ -58,7 +56,7 @@ class AddCategory extends Component{
 
 <div class="row justify-content-center">
         <form className="form-inline" onSubmit={this.onClick} name="add-category">
-            <input type="text"  name="category_name" value = {this.state.category_name} onChange = {this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+            <input type="text"  required name="category_name" value = {this.state.category_name} onChange = {this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
             <button type="submit" className="btn btn-primary mb-2 pxy-4">Save</button>
     </form>
     </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {notify} from 'react-notify-toast';
+import toastr from 'toastr';
 import {Redirect, Link} from 'react-router-dom';
 import {signUpUser} from '../api_wrapper/users';
 import { userSignUp, deleteCategory, getCategories, editCategory } from '../api_wrapper/users';
@@ -28,17 +28,17 @@ class SignUp extends Component{
   onClick = event => {
     event.preventDefault();
     const {username, firstname, email, password, confirm_password} = this.state;
-    axios.post('http://127.0.0.1:5000/register', {
-      username, firstname, email, password, confirm_password
-      })
+    userSignUp({username, firstname, email, password, confirm_password})
     .then((response) => {
       console.log(response.data);
+      toastr.success(response.data.message)
       this.setState({ loginSuccess: true },
       this.props.history.push('/login')
       )
     })
     .catch((error) => {
-      console.log('error reg', error);
+      console.log(error.response.data);
+      toastr.error(error.response.data)
     });
     this.setState({
       username:'',
@@ -68,15 +68,18 @@ class SignUp extends Component{
 
                 <div className="form-group" >
                 <label className="register-label" >Username:</label>
-                <input className="register-info" name="username" value = {this.state.username} placeholder='Basemera' onChange = {this.handleInputChange}/>
+                <input className="register-info" name="username" value = {this.state.username} placeholder='Basemera'
+                onChange = {this.handleInputChange} required/>
                 </div>
                 <div className="form-group">
                 <label className="register-label" >Email:                </label>
-                <input className="register-info" name="email" value = {this.state.email} placeholder='basemera@example.com' onChange = {this.handleInputChange}/>
+                <input className="register-info" name="email" value = {this.state.email} placeholder='basemera@example.com' 
+                onChange = {this.handleInputChange} required/>
                 </div>
                 <div className="form-group">
                 <label className="register-label" >Firstname:</label>
-                <input className='register-info' name="firstname" value = {this.state.firstname} placeholder="Phiona" onChange = {this.handleInputChange}/>
+                <input className='register-info' name="firstname" value = {this.state.firstname} placeholder="Phiona" 
+                onChange = {this.handleInputChange} required/>
                 </div>
       <div className="form-group">
               <label className="register-label" >Password:</label>
@@ -84,7 +87,8 @@ class SignUp extends Component{
       </div>
       <div className="form-group">
               <label className="confirm-password">Confirm Password:</label>
-              <input type = "password" className='register-info' name="confirm_password" value = {this.state.confirm_password} placeholder='phiona' onChange = {this.handleInputChange}></input>
+              <input type = "password" className='register-info' name="confirm_password" value = {this.state.confirm_password} 
+              placeholder='phiona' onChange = {this.handleInputChange} required></input>
       </div>
       <div className="form-group"> 
               <div className="col-sm-offset-5 col-sm-5">

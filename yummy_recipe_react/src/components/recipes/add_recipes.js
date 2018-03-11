@@ -3,7 +3,7 @@ import axios from 'axios';
 import toastr from 'toastr';
 import { notify } from 'react-notify-toast';
 import { Redirect } from 'react-router-dom';
-import { createCategory } from '../../api_wrapper/categories'
+import { createRecipes } from '../../api_wrapper/recipes'
 
 class AddRecipe extends Component {
   constructor(props) {
@@ -25,14 +25,9 @@ class AddRecipe extends Component {
   onClick = event => {
     event.preventDefault();
     const { recipe_name, description } = this.state;
-    // createCategory(category_name)
-    // axios.post('http://127.0.0.1:5000/category', {category_name, 
-    // headers:{'x-access-token':localStorage.getItem('token')}})
     const category = this.props.category_id
     console.log("ivawasasas", category)
-    axios.post(`http://127.0.0.1:5000/category/${category}/recipes`,
-      { recipe_name: this.state.recipe_name, description: this.state.description },
-      { headers: { 'x-access-token': localStorage.getItem('token') } })
+    createRecipes(category, { recipe_name: this.state.recipe_name, description: this.state.description })
       .then((response) => {
         toastr.success(response.data.message)
         this.props.getRecipes();
