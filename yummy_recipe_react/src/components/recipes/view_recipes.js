@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { notify } from 'react-notify-toast';
-import toastr from 'toastr';
 import { Redirect, Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import toastr from 'toastr';
 import AddRecipe from './add_recipes'
 import EditRecipe from './edit_recipes';
+import { deleteRecipes, getRecipes, searchRecipes, recipesSearchChangePage, searchClickRecipes } from '../../api_wrapper/recipes'
 
 
 class ViewRecipes extends Component {
@@ -15,28 +16,36 @@ class ViewRecipes extends Component {
         this.state = {
             recipes: [],
             category: this.props.match.params.category_id,
-            recipe_name: ""
+            recipe_name: "",
+            total:"",
+            currentPage:"",
+           itemsPerPage:"",
+           search:false
         };
     }
 
     onSearch = (event) => {
         event.preventDefault();
         const recipe_name = event.target.recipe_name.value
+        this.setState({recipe_name:recipe_name})
         const category = this.state.category
         console.log('baron is that', recipe_name);
-        axios.get(`http://127.0.0.1:5000/category/${category}/recipes/search?q=${recipe_name}&per_page=5&page=1`,
-            { headers: { 'x-access-token': localStorage.getItem('token') } })
+        searchRecipes(recipe_name, category)
             .then((response) => {
-                console.log(response.data);
+             toastr.success("Search item found")
+                console.log(response.data.results);
                 this.setState({
-                    recipes: response.data,
-                    recipe_name: ""
-                    //  search:event.target.category_name.value,
+                    recipes: response.data.results,
+                    total:response.data.count,
+                    itemsPerPage:response.data.per_page,
+                    search:true
                 });
 
             })
             .catch((error) => {
                 console.log(error.response);
+                toastr.error(error.response.data.message)
+                this.onClick()
             });
     }
 
@@ -46,20 +55,46 @@ class ViewRecipes extends Component {
 
     onClick = () => {
         const category = this.props.match.params.category_id
-
-        axios.get(`http://127.0.0.1:5000/category/${category}/recipes`, { headers: { 'x-access-token': localStorage.getItem('token') } })
-            // getCategories()
+        getRecipes(category)
             .then((response) => {
-                this.setState({ recipes: response.data })
-                //   this.componentDidMount()
+                console.log(response.data.results)
+                this.setState({
+                    recipes: response.data.results,
+                    recipe_name: "",
+                    total:response.data.count
+                });
             })
 
             .catch((error) => {
                 console.log(error.response);
-                this.props.history.push('/view-recipes')
+                this.props.history.push(`/view-recipes/${category}`)
             });
 
 
+    }
+
+    handleClick(number){
+        const category = this.props.match.params.category_id
+        recipesSearchChangePage(number, category)
+        .then((response) => {
+          this.setState({ recipes: response.data.results,
+            currentPage:response.data.pagenumber,
+           itemsPerPage:4})
+    
+        })
+    }
+    handleSearchClick = (event, pages) => {
+        event.preventDefault();
+        const category = this.props.match.params.category_id
+        const recipe_name = this.state.recipe_name
+        searchClickRecipes(recipe_name, pages, category)
+        .then((response) => {
+          console.log(response.data)
+          this.setState({ recipes: response.data.results,
+            currentPage:response.data.pagenumber,
+           itemsPerPage:4})
+    
+        })
     }
 
     handleInputChange = (event) => {
@@ -84,32 +119,25 @@ class ViewRecipes extends Component {
                 onCancel: () => this.handleNo(category)
             }
         )
-        this.props.history.push(`/delete-recipe/${category}/${recipe_id}`)
     }
 
     handleYes = (recipe_id, category) => {
-        // event.preventDefault();
-        // const recipe_id = this.props.match.params.recipe_id;
-        // const category = this.props.match.params.category
-
-        axios.delete(`http://127.0.0.1:5000/category/${category}/recipes/${recipe_id}`,
-            { headers: { 'x-access-token': localStorage.getItem('token') } })
-            .then((response) => {
-                console.log(response.data.message);
-                toastr.success(response.data.message)
-                this.setState({ successfuldelete: true })
-                this.props.history.push(`/view-recipes/${category}`)
-
-            })
-            .catch((error) => {
-                console.log(error.response);
-            });
+        const category2 = this.props.match.params.category_id
+        deleteRecipes(category2, recipe_id)
+        .then((response) => {
+          toastr.success(response.data.message)
+        this.setState({ successfuldelete: true})
+        this.onClick();
+          
+        })
+        .catch((error) => {
+          console.log(error.response);
+          toastr.error(error.response)
+        });
     }
     handleNo = (category) => {
-        // event.preventDefault();
-        // const recipe_id = this.props.match.params.recipe_id;
-        // const category = this.props.match.params.category;
-        this.props.history.push(`/view-recipes/${category}`)
+        const category2 = this.props.match.params.category_id;
+        this.onClick();
     }
 
     onView = () => {
@@ -118,12 +146,11 @@ class ViewRecipes extends Component {
 
     render() {
         let recipeitems = this.state.recipes.map(
-            recipes => (<div>
-
+            recipes => (<div className="col-md-4 col-lg-4 recipe-card">
                 <li>
                     <div id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="card-deck">
-                            <div className="card col-md-3 col-sm-6 category-card">
+                            <div className="card category-card">
                                 <div className="card-header" role="tab" id="headingOne">
                                     <h5 className="mb-0">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#${recipes.recipe_id}`" aria-expanded="true" aria-controls="collapseOne">
@@ -155,11 +182,43 @@ class ViewRecipes extends Component {
 
                     {recipes.recipe_id}
 
-
-                </li>
+</li>
+               
             </div>
             )
         )
+
+        const { total, search }=this.state
+        let loadPagination;
+        const pageNumbers = [];
+       if(total > 4){
+           for (let i = 1; i <= Math.ceil(total /4); i++) {
+               pageNumbers.push(i);
+           }
+       } else {
+           pageNumbers.push(1);
+       }
+            if (search ===false){
+                loadPagination = 
+                pageNumbers.map((number) => {
+                return(
+                    <li className="page-item" key={number} style={{display: 'inline-block'}}>
+                    <a className="page-link" onClick={() => this.handleClick(number)} key={number} id={number}>{number}</a>
+                    </li> 
+                );  
+                })
+            }
+            else if(search === true){
+                loadPagination = 
+            pageNumbers.map((pages) => {
+            return(
+                <li className="page-item" key={pages} style={{display: 'inline-block'}}>
+                <a className="page-link" onClick={event => this.handleSearchClick(event,pages)} key={pages} id={pages}>{pages}</a>
+                </li> 
+            );  
+            })
+            }
+            
 
         return (
 
@@ -172,7 +231,7 @@ class ViewRecipes extends Component {
                     <div className="row">
 
                         <h4 className="categories-header"> Recipes </h4>
-                        <div className="col-6 row justify-content-center">
+                        <div className="col-4 row justify-content-center">
                             <form className="search-form-recipes" onSubmit={this.onSearch} name="search-recipes">
                                 <input className="form-group" name="recipe_name" value={this.state.recipe_name} placeholder='recipe name' onChange={this.handleInputChange} />
                                 <button type="submit" className="btn btn-primary mb-2 pxy-4">Search</button>
@@ -186,35 +245,21 @@ class ViewRecipes extends Component {
 
 
                         </div>
-
-
-                        {/* <div>
-
-                        <form className="" onSubmit={this.onSearch} name="edit-category">
-                            <div className="form-group" >
-                                <label className="control-label col-sm-4">Recipe Name:</label>
-                                <input className="form-group" name="recipe_name" value={this.state.recipe_name} placeholder='Basemera' onChange={this.handleInputChange} />
-                            </div>
-                            <div className="form-group">
-                                <div className="col-sm-offset-5 col-sm-5">
-                                    <button type="submit" className="btn btn-success">Search</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div> */}
+                        
                     </div>
-
-
+                    <ul className="pagination justify-content-center">
+                        {loadPagination}
+                    </ul>
+                    <div className="row">
                     {this.state.recipes.length
                         ? recipeitems
-                        : <div className="col-sm-2 offset-sm-5" className="no-categories">
+                        : <div className="col-sm-4 col-lg-4" className="no-categories">
                             <div className="alert alert-info" role="alert">
                                 <strong>Ooops!</strong> There are no recipes to
                                                 display. Please add some.
                             </div>
                         </div>}
-
+</div>
                 </div>
 
             </div>

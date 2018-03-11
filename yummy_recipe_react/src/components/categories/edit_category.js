@@ -21,22 +21,17 @@ class EditCategory extends Component{
       onClick = event => {
         event.preventDefault();
         const {category_name} = this.state;
-        // createCategory(category_name)
         const category_id = this.props.match.params.category_id;
-        axios.put(`http://127.0.0.1:5000/category/${category_id}`, 
-        {category_name:this.state.category_name},
-        {headers:{'x-access-token':localStorage.getItem('token')}})
-        // editCategory(category_id, {category_name:this.state.category_name}
-        // )
+        const data={category_name:this.state.category_name}
+        console.log(category_id)
+        editCategory(category_id, {category_name:this.state.category_name})
         .then((response) => {
           console.log(response.data);
           toastr.success(response.data.message)
-        //   this.props.getCats();
           this.props.history.push('/view-categories')
           this.setState({ successfuledit: true})
         })
         .catch((error) => {
-          console.log(error.response);
           toastr.error(error.response.data.message)
           
         });
@@ -50,13 +45,13 @@ class EditCategory extends Component{
         <div className = "row">
         <div className = 'jumbotron'>
           
-    <p> Add category</p>
+    <p> Edit category</p>
     
             <form className="editcategory-form" onSubmit={this.onClick} name="edit-category">
     
                     <div className="form-group" >
                     <label className="control-label col-sm-4" for="add-category">Category Name:</label>
-                    <input className="category-info" name="category_name" value = {this.state.category_name} onChange = {this.handleInputChange}/>
+                    <input className="category-info" required name="category_name" value = {this.state.category_name} onChange = {this.handleInputChange}/>
                     </div>
           <div className="form-group"> 
                   <div className="col-sm-offset-5 col-sm-5">
