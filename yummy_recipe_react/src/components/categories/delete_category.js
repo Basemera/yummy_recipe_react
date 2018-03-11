@@ -3,6 +3,7 @@ import axios from 'axios';
 import toastr from 'toastr';
 import { notify } from 'react-notify-toast';
 import { Redirect } from 'react-router-dom';
+import {deleteCategory} from '../../api_wrapper/categories'
 
 class DeleteCategory extends Component {
     constructor(props) {
@@ -16,18 +17,13 @@ class DeleteCategory extends Component {
     handleYes = (event) => {
         event.preventDefault();
         const category_id = this.props.match.params.category_id;
-        console.log("jijijijij mmmmm");
-        axios.delete(`http://127.0.0.1:5000/category/${category_id}`,
-            { headers: { 'x-access-token': localStorage.getItem('token') } })
+        deleteCategory({category_id})
             .then((response) => {
-                // console.log("jijijijij",response.data);
-                toastr.success("successfully deleted")
+                toastr.success(response.data.message)
                 this.setState({ successfuldelete: true })
                 this.props.history.push('/view-categories')
-
             })
             .catch((error) => {
-                console.log("jijijijij jjjjjjjjjjooo");
                 console.log(error.response);
             });
     }
@@ -44,7 +40,7 @@ class DeleteCategory extends Component {
             <div>
                 <div>
                 </div>
-                <div id="myModal" className="modal hide">
+                <div id="myModal" className="modal hide delete-modal">
                     <div className="modal-header">
                         <a href="#" data-dismiss="modal" aria-hidden="true" className="close">×</a>
                         <h3>Delete    </h3>

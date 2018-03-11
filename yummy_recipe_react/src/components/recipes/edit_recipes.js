@@ -23,16 +23,12 @@ class EditRecipe extends Component {
     onClick = event => {
         event.preventDefault();
         const { recipe_name, description } = this.state;
-        // const category = this.props.match.params.category;
+        const category = this.props.match.params.category;
         const recipe_id = this.props.match.params.recipe_id;
-        axios.put(`http://127.0.0.1:5000/category/recipes/${recipe_id}`,
-            { recipe_name: this.state.recipe_name, description: this.state.description },
-            { headers: { 'x-access-token': localStorage.getItem('token') } })
-            // editRecipes(recipe_id, {recipe_name:this.state.recipe_name, description:this.state.description}
-            // )
+            editRecipes(category, recipe_id, {recipe_name:this.state.recipe_name, description:this.state.description}
+            )
             .then((response) => {
-                console.log(response.data);
-                const category = this.props.match.params.category
+                console.log(category);
                 this.props.history.push(`/view-recipes/${category}`)
                 this.setState({ successfuledit: true })
                 toastr.success(response.data.message)
@@ -42,9 +38,6 @@ class EditRecipe extends Component {
                 console.log(error.response.data.message);
             });
     }
-    //     componentDidMount(){
-    // this.onClick()
-    //     }
 
     render() {
         const { recipe_name, recipe_id, description, category } = this.state
