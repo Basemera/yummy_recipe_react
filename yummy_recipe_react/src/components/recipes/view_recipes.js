@@ -8,6 +8,7 @@ import toastr from 'toastr';
 import AddRecipe from './add_recipes'
 import EditRecipe from './edit_recipes';
 import { deleteRecipes, getRecipes, searchRecipes, recipesSearchChangePage, searchClickRecipes } from '../../api_wrapper/recipes'
+import { signout } from '../../utils/authservice';
 
 
 class ViewRecipes extends Component {
@@ -67,7 +68,8 @@ class ViewRecipes extends Component {
 
             .catch((error) => {
                 console.log(error.response);
-                this.props.history.push(`/view-recipes/${category}`)
+                this.props.history.push('/login')
+                toastr.error(error.response.message)
             });
 
 
@@ -105,6 +107,14 @@ class ViewRecipes extends Component {
 
     OneditItem = (recipe_id, category) => {
         this.props.history.push(`/edit-recipe/${category}/${recipe_id}`)
+    }
+
+    onSignout = () => {
+        const AUTH_TOKEN_KEY = 'token';
+        const setToken = token => localStorage.setItem(AUTH_TOKEN_KEY, token);
+        const clearToken = () => localStorage.removeItem(AUTH_TOKEN_KEY);
+        clearToken()
+        this.props.history.push('/')
     }
 
     onDelete = (recipe_id, recipe_name, category) => {
@@ -225,6 +235,7 @@ class ViewRecipes extends Component {
             
             <div className="recipes-view">
             <h5 className='card-footer'>
+                <button onClick={this.onSignout}>signout</button>
                 <Link to='#' onClick={() => this.onView()}>Back to categories</Link>
             </h5>
                 <div className="container">

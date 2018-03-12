@@ -5,6 +5,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { signUpUser } from '../api_wrapper/users';
 import { userSignUp, deleteCategory, getCategories, editCategory } from '../api_wrapper/users';
 import SignUpCard from './signUpCard'
+import VideoPlayer from './VideoPlayer'
 
 class SignUp extends Component {
   constructor(props) {
@@ -57,7 +58,10 @@ class SignUp extends Component {
     }
     const { username, firstname, email, password, confirm_password } = this.state
     return (
+      <div>
+      
     <SignUpCard {...this.state} handleInputChange={this.handleInputChange} onClick={this.onClick}/>
+    </div>
     )}
 }
 export default SignUp;

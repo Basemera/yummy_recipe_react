@@ -10,6 +10,7 @@ import { Grid, Row, Col, Thumbnail } from 'react-bootstrap'
 import AddCategory from './add_category';
 import { deleteCategory, getCategories, editCategory, searchCategories, categoriesSearchChangePage, searchClickCategories } from '../../api_wrapper/categories';
 import Paginator from '../pagination'
+import { getToken } from '../../utils/authservice';
 
 
 
@@ -136,8 +137,12 @@ class ViewCategories extends Component {
       })
 
       .catch((error) => {
-        console.log(error.response);
-        this.props.history.push('/login')
+        console.log(getToken)
+        if (getToken=="") {
+          this.props.history.push('/login')
+        }
+        // this.props.history.push('/login')
+        console.log(error.response.data.message)
       });
   }
 
