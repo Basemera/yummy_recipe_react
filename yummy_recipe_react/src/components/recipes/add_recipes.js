@@ -26,7 +26,6 @@ class AddRecipe extends Component {
     event.preventDefault();
     const { recipe_name, description } = this.state;
     const category = this.props.category_id
-    console.log("ivawasasas", category)
     createRecipes(category, { recipe_name: this.state.recipe_name, description: this.state.description })
       .then((response) => {
         toastr.success(response.data.message)
@@ -54,15 +53,15 @@ class AddRecipe extends Component {
 
               <p> Add recipe</p>
 
-              <form className="form-inline" onSubmit={this.onClick} name="add-category">
+              <form className="form-inline" onSubmit={this.onClick} name="add-recipe">
 
                 <div className="form-group" >
                   {/* <label className="control-label col-sm-4" >Name:</label> */}
-                  <input className="form-group" name="recipe_name" value={this.state.recipe_name} required="True" placeholder='recipe name' onChange={this.handleInputChange} />
+                  <input className="form-group" id = "recipe-name" name="recipe_name" value={this.state.recipe_name} required placeholder='recipe name' onChange={this.handleInputChange} />
                 </div>
                 <div>
                   {/* <label className="control-label col-sm-4" >Description:  </label> */}
-                  <input className="form-group" name="description" value={this.state.description} placeholder='Description' onChange={this.handleInputChange} />
+                  <input id = "description" className="form-group" name="description" value={this.state.description} required placeholder='Description' onChange={this.handleInputChange} />
                 </div>
 
                 <div className="col-sm-offset-5 col-sm-5">

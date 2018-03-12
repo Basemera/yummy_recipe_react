@@ -222,17 +222,17 @@ class ViewCategories extends Component {
       
     return (
       <div>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-          <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+          <div className="container">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
               aria-controls="navbarNavAltMarkup"
               aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div className="navbar-nav">
                 <a className="nav-item nav-link" href="/">Home
-                    <span class="sr-only">(current)</span>
+                    <span className="sr-only">(current)</span>
                 </a>
               </div>
             </div>
@@ -248,8 +248,8 @@ class ViewCategories extends Component {
                 <div className="row">
                   <div className="col-6 row justify-content-center">
                     <form className="search-form" onSubmit={this.onSearch} name="search-category">
-                      <input type="text" name="category_name" value={this.state.category_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
-                      <button type="submit" class="btn btn-primary mb-2 pxy-4">Search</button>
+                      <input required id ="category-name" type="text" name="category_name" value={this.state.category_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+                      <button type="submit" className="btn btn-primary mb-2 pxy-4">Search</button>
                     </form>
                   </div>
 

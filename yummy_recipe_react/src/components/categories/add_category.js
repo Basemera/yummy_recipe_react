@@ -54,9 +54,9 @@ class AddCategory extends Component{
       
 <p> Add category</p>
 
-<div class="row justify-content-center">
+<div className="row justify-content-center">
         <form className="form-inline" onSubmit={this.onClick} name="add-category">
-            <input type="text"  required name="category_name" value = {this.state.category_name} onChange = {this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+            <input type="text"  id= "category-name" required name="category_name" value = {this.state.category_name} onChange = {this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
             <button type="submit" className="btn btn-primary mb-2 pxy-4">Save</button>
     </form>
     </div>
