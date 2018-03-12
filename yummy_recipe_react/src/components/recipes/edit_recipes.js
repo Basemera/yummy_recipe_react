@@ -49,15 +49,14 @@ class EditRecipe extends Component {
 
                             <p> Edit Recipe</p>
 
-                            <form className="form-inline" onSubmit={this.onClick} name="add-category">
+                            <form id="editrecipe" className="form-inline" onSubmit={this.onClick} name="edit-recipe">
 
                                 <div className="form-group" >
-                                    {/* <label className="control-label col-sm-4" >Name:</label> */}
-                                    <input className="form-group" name="recipe_name" value={this.state.recipe_name} required="True"  placeholder="recipe name" onChange={this.handleInputChange} />
+                                    <input className="form-group" id="recipe-name" name="recipe-name" value={this.state.recipe_name} required  placeholder="recipe name" onChange={this.handleInputChange} />
                                 </div>
                                 <div>
                                     {/* <label className="control-label col-sm-4" >Description:  </label> */}
-                                    <input className="form-group" name="description" value={this.state.description} required="True" placeholder="description" onChange={this.handleInputChange} />
+                                    <input className="form-group" id="description" name="description" value={this.state.description} required placeholder="description" onChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-sm-offset-5 col-sm-5">

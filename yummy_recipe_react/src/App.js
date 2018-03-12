@@ -14,7 +14,7 @@ import DeleteCategory from './components/categories/delete_category'
 import ViewRecipes from './components/recipes/view_recipes'
 import AddRecipe from './components/recipes/add_recipes'
 import EditRecipe from './components/recipes/edit_recipes'
-import DeleteRecipe from './components/recipes/delete_recipes'
+
 import HeaderView from './components/header'
 import './css/style.css';
 
@@ -37,7 +37,6 @@ class App extends Component {
         <Route exact path ="/view-recipes/:category_id" component={ViewRecipes}/>
         <Route exact path ="/add-recipe/:category_id/:recipe_id" component={AddRecipe}/>
         <Route exact path ="/edit-recipe/:category/:recipe_id" component={EditRecipe}/>
-        <Route exact path ="/delete-recipe/:category/:recipe_id" component={DeleteRecipe}/>
       </Switch>
     </div>
   </BrowserRouter>

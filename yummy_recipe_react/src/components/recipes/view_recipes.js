@@ -15,7 +15,7 @@ class ViewRecipes extends Component {
         super(props);
         this.state = {
             recipes: [],
-            category: this.props.match.params.category_id,
+            category_id: this.props.match.params.category_id,
             recipe_name: "",
             total:"",
             currentPage:"",
@@ -28,7 +28,7 @@ class ViewRecipes extends Component {
         event.preventDefault();
         const recipe_name = event.target.recipe_name.value
         this.setState({recipe_name:recipe_name})
-        const category = this.state.category
+        const category = this.state.category_id
         console.log('baron is that', recipe_name);
         searchRecipes(recipe_name, category)
             .then((response) => {
@@ -159,7 +159,7 @@ class ViewRecipes extends Component {
                                     </h5>
                                     <div className="card-block">
                                         <div className='card-body'>
-                                            <Link to="#" onClick={() => this.OneditItem(recipes.recipe_id, recipes.category, recipes.recipe_name, recipes.description)}>
+                                            <Link id="recipe-link" to="#" onClick={() => this.OneditItem(recipes.recipe_id, recipes.category, recipes.recipe_name, recipes.description)}>
 
                                                 <i className='fa fa-edit' />
                                             </Link>
