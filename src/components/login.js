@@ -5,7 +5,7 @@ import { setToken } from '../utils/authservice';
 import toastr from 'toastr';
 
 /**
- * Component for to log in a user*.
+ * Component to log in a user*.
  */
 class LogIn extends Component {
   state = {

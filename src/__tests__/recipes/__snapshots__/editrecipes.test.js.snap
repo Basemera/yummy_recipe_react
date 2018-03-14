@@ -26,7 +26,7 @@ exports[`Test Edit recipe component edits recipes renders the edit recipe form a
             <input
               className="form-group"
               id="recipe-name"
-              name="recipe-name"
+              name="recipe_name"
               onChange={[Function]}
               placeholder="recipe name"
               required={true}

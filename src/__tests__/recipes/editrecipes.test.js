@@ -42,6 +42,10 @@ const setUp = (recipe_name, description, category) => {
 
             handleInputChange: () => {
 
+            },
+
+            handleSubmit: () => {
+
             }
         }
 
@@ -56,7 +60,7 @@ const setUp = (recipe_name, description, category) => {
     it('has recipe name field', () => {
         const input = wrapper.find('input').at(0);
         wrapper.find('#recipe-name').simulate('change', { target: { name: 'recipe-name', value: 'duck' } });
-        expect(input.props().name).toEqual('recipe-name');
+        expect(input.props().name).toEqual('recipe_name');
         expect(input.props().required).toEqual(true);
         expect(wrapper.state('recipe-name')).toEqual('duck')
     });
@@ -80,10 +84,10 @@ const setUp = (recipe_name, description, category) => {
         expect(input.simulate('click'));
     }) ;
 
-    // it('renders the edit recipe form and submits data', () =>{
-    //     wrapper.setState({recipe_name:'apples', description:'this is me'});
-    //     wrapper.find("#editrecipe").simulate('submit', {preventDefault(){}});
-    //     expect(toJson(wrapper)).toMatchSnapshot();
-    //     // expect(handleSubmit.calledOnce).toEqual(false)
-    // });
+    it('renders the edit recipe form and submits data', () =>{
+        wrapper.setState({recipe_name:'apples', description:'this is me'});
+        wrapper.find("#editrecipe").simulate('submit', {preventDefault(){}});
+        expect(toJson(wrapper)).toMatchSnapshot();
+        // expect(handleSubmit.calledOnce).toEqual(false)
+    });
 });
