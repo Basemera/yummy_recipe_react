@@ -5,6 +5,9 @@ import { notify } from 'react-notify-toast';
 import { Redirect } from 'react-router-dom';
 import { createRecipes } from '../../api_wrapper/recipes'
 
+/**
+ * Component to add recipes*.
+ */
 class AddRecipe extends Component {
   constructor(props) {
     super(props);
@@ -30,13 +33,20 @@ class AddRecipe extends Component {
       .then((response) => {
         toastr.success(response.data.message)
         this.props.getRecipes();
-        console.log(response.data.message)
+        console.log(response.data)
         this.setState({ recipeaddedSuccess: true })
       })
-      .catch((error) => {
-        toastr.error(error.response.data.error)
-        console.log(error.response.data.error);
+      // .catch((error) => {
+      //   toastr.error(error.response.data.error)
+      //   console.log(error.response.data.error);
+      // });
+      .catch(function (error) {
+        if(error.response){
+          const { data:{message} } = error.response;
+          toastr.error(message)
+      }
       });
+
     this.setState({
       recipe_name: '',
       description: '',

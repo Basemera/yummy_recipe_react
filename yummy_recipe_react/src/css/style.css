@@ -1,44 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Patua+One|Tillana');
+html, body {
+  margin: 0;
+}
+
 .background {
-  background: url('images/chicken.jpg') no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
   padding: 0% 0 10% 0;
-  color: blueviolet
 }
 
 .navigation {
-  background-color: beige;
-  height: 80px;
-  padding: 5px;
+  position: absolute;
+  background: transparent;
+  z-index: 100;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 80% auto;
 }
 
-.nav {
-  float: right;
+.nav{
+  margin-top: 2em;
 }
 
-#login {
+.nav .urls{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
+
+.urls btn {
   border-radius: 10px;
   background-color: rgb(212, 204, 204);
-  width: 85px;
-  height: 40px;
-  font-size: 34px;
-  margin-top: -25px;
-  padding-right: 150px;
-  padding-bottom: 50px;
-  margin-right: 10px;
-}
-
-#signup {
-  border-radius: 10px;
-  background-color: rgb(212, 204, 204);
-  width: 85px;
-  height: 40px;
-  font-size: 34px;
-  margin-top: -25px;
-  padding-right: 150px;
-  padding-bottom: 50px;
-  margin-right: 10px;
+  margin: 2em;
+  
 }
 
 #header {
@@ -53,7 +48,6 @@
   font-size: 40px;
   padding-top: 250px;
   display: block;
-  background: #e9ecef00;
   height: 300px;
   width: 1000px;
 }
@@ -119,13 +113,10 @@ label.control-label {
 }
 
 .signup-bg {
-  background: url('images/restaurant_icons.png') no-repeat;
   background-size: cover;
-  margin-left: 260px;
-  margin-top: 20px;
-  padding-top: 10px;
-  height: 1000px;
   font-size: 20px;
+  /* marg÷in: 0 auto; */
+  margin: 116px auto;
 }
 
 .register-info {
@@ -149,19 +140,25 @@ label.control-label {
   color: mediumseagreen;
 }
 
+#wrapper {
+  background: url('images/restaurant_icons.png') no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 1200px;
+}
+
 .signup-bg-image {
-  background: url('images/restaurant_icons.png') no repeat;
-  color: mediumseagreen;
+  color: #212529;
   font-weight: 900;
   font-size: 20px;
-  height: 500px;
 }
 
 .login-bg {
   background: url('images/restaurant_icons.png') no-repeat;
   margin-left: 260px;
-  margin-top: 20px;
-  padding-top: 10px;
+  margin-top: 0;
+  padding-top: 0;
   height: 1000px;
   color: azure;
   font-weight: 900;
@@ -189,8 +186,8 @@ label.control-label {
 .view-categories-head {
   background: url('images/signup-image.jpg') no-repeat;
   background-size: cover;
-  height: 1000px;
-  margin-top: 400px;
+  min-height: 100%;
+  margin-top: 50px;
 }
 
 .no-categories {
@@ -202,11 +199,19 @@ label.control-label {
 
 .categories-header {
   text-align: center;
-  font-size: 80px;
+  font-size: 30px;
   color: rgb(43, 90, 222);
   font-family: 'Lobster', cursive;
+  margin-top:5%;
 }
 
+.categories-header-cat {
+  text-align: center;
+  font-size: 30px;
+  color: rgb(43, 90, 222);
+  font-family: 'Lobster', cursive;
+  margin-top:1%;
+}
 .add-category {
   align-items: center;
   padding-left: 500px;
@@ -226,15 +231,12 @@ label.control-label {
 
 .view-categories-title {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   color: rgb(43, 90, 222);
   font-family: 'Lobster', cursive;
 }
 
 .submit-button {
-  margin-left: 8em;
-  margin-top: 1em;
-  font-size: 128%;
   color: #1641de;
   background-color: #b1cdea;
 }
@@ -260,31 +262,11 @@ input.username {
   color: #1641de;
 }
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
 .form-signin {
-  width: 100%;
-  max-width: 330px;
+  width: 28%;
   padding: 15px;
-  margin: 0 auto;
+  margin: 159px auto;
+  background-color: #e9ecef;
 }
 
 .form-signin .checkbox {
@@ -340,13 +322,62 @@ body {
 .recipes-view {
   background: url('images/signup-image.jpg') no-repeat;
   background-size: cover;
-  height: 1000px;
-  margin-top: 400px;
+  min-height: 100%;
+  margin-top: 0px;
 }
 .recipe-card{
-    margin-right: 15px;
-    margin-bottom: 0;
-    margin-left: 15px;
-    width: 100px;
-    height: 800px;
+    /* margin-right: 1px;
+    margin-bottom: 0%;
+    margin-left: 1px; */
+    width: 20%;
+    height: 0%;
 }
+.carousel-caption {
+  position: absolute;
+    right: 15%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    top: 30%;
+    font-weight: 100%;
+    font-size: 3em;
+}
+
+.caption-header{
+  font-weight: 100%;
+  font-size: 1em;
+  color: white;
+}
+.capt {
+  font-weight: 100%;
+  font-size: 1em;
+  color: #212529;
+  background-color: #f7fafd69;
+  height:50%;
+}
+
+.capt h5 {
+  font-weight: 100%;
+  font-size: 1em;
+  color: #212529;
+  background-color: #f7fafd69;
+}
+
+.sign-out{
+  margin-right: 1000px;
+  margin-left: 100%;
+  font-size: 1em;
+  color: white;
+}
+
+.back-categories{
+  margin-top:5%;;
+}
+
+.card-block{ 
+  padding:0;
+  margin-bottom:0%;
+ }

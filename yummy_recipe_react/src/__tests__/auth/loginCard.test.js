@@ -28,8 +28,7 @@ const setUp = (username, password) => {
 describe('<loginCard/>', () => {
     const wrapper = shallow( <LoginCard/> );
     it('renders a p element', () => {
-        expect(wrapper.find("p")).toHaveLength(1);
-        expect(wrapper.find('p').text()).toEqual('© 2017-2018');
+        expect(wrapper.find("p")).toHaveLength(2);
 })
 
 it('renders an h1 element', () => {

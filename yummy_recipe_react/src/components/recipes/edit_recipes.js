@@ -5,14 +5,17 @@ import toastr from 'toastr';
 import { Redirect } from 'react-router-dom';
 import { editRecipes } from '../../api_wrapper/recipes';
 
+/**
+ * Component to edit recipes*.
+ */
 class EditRecipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            'recipe_name': this.props.match.params.recipe_name,
-            'recipe_id': this.props.match.params.recipe_id,
-            'successfuledit': false,
-            'description': this.props.match.params.description,
+            recipe_name: this.props.match.params.recipe_name,
+            recipe_id: this.props.match.params.recipe_id,
+            successfuledit: false,
+            description: this.props.match.params.description,
         }
     }
     handleInputChange = (event) => {
@@ -52,7 +55,7 @@ class EditRecipe extends Component {
                             <form id="editrecipe" className="form-inline" onSubmit={this.onClick} name="edit-recipe">
 
                                 <div className="form-group" >
-                                    <input className="form-group" id="recipe-name" name="recipe-name" value={this.state.recipe_name} required  placeholder="recipe name" onChange={this.handleInputChange} />
+                                    <input className="form-group" id="recipe-name" name="recipe_name" value={this.state.recipe_name} required  placeholder="recipe name" onChange={this.handleInputChange} />
                                 </div>
                                 <div>
                                     {/* <label className="control-label col-sm-4" >Description:  </label> */}

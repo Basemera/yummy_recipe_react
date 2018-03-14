@@ -38,24 +38,26 @@ const CategoryToRender = (props) => (
 )
 
 
-
+/**
+ * Component to view categories*.
+ */
 class ViewCategories extends Component {
   constructor(props) {
     super(props);
     this.state = {
       categories: [],
       category_name: "",
-      search: "", 
-      total:"",
-      currentPage:"",
-      search:false
-      
+      search: "",
+      total: "",
+      currentPage: "",
+      search: false
+
     };
   }
 
   pageChangeHandler = () => {
     this.props.onPaginate();
-};
+  };
 
 
   OneditItem = (category_id, category_name) => {
@@ -102,16 +104,18 @@ class ViewCategories extends Component {
   onSearch = (event) => {
     event.preventDefault();
     const category_name = event.target.category_name.value
-    this.setState({category_name:category_name})
+    this.setState({ category_name: category_name })
     searchCategories(category_name)
       .then((response) => {
         toastr.success("Search item found")
-        this.setState({ categories: response.data.results,
+        this.setState({
+          categories: response.data.results,
           total: response.data.count,
-          currentPage:response.data.pagenumber,
-         itemsPerPage:response.data.per_page,
-         category_name:category_name,
-        search:true});
+          currentPage: response.data.pagenumber,
+          itemsPerPage: response.data.per_page,
+          category_name: category_name,
+          search: true
+        });
 
       })
       .catch((error) => {
@@ -125,20 +129,22 @@ class ViewCategories extends Component {
   }
 
   onClick = () => {
-    this.setState({category_name:""})
+    this.setState({ category_name: "" })
     getCategories()
       .then((response) => {
-       console.log(response.data.results)
-        this.setState({ categories: response.data.results,
+        console.log(response.data.results)
+        this.setState({
+          categories: response.data.results,
           total: response.data.count,
-          currentPage:response.data.pagenumber,
-         itemsPerPage:8,
-         search:false})
+          currentPage: response.data.pagenumber,
+          itemsPerPage: 8,
+          search: false
+        })
       })
 
       .catch((error) => {
         console.log(getToken)
-        if (getToken=="") {
+        if (getToken == "") {
           this.props.history.push('/login')
         }
         // this.props.history.push('/login')
@@ -146,21 +152,31 @@ class ViewCategories extends Component {
       });
   }
 
-  handleClick(number){
+  onSignout = () => {
+    const AUTH_TOKEN_KEY = 'token';
+    const setToken = token => localStorage.setItem(AUTH_TOKEN_KEY, token);
+    const clearToken = () => localStorage.removeItem(AUTH_TOKEN_KEY);
+    clearToken()
+    this.props.history.push('/')
+  }
+
+  handleClick(number) {
     categoriesSearchChangePage(number)
-    .then((response) => {
-      console.log(response.data)
-      this.setState({ categories: response.data.results,
-        total: response.data.count,
-        currentPage:response.data.pagenumber,
-       itemsPerPage:8})
+      .then((response) => {
+        console.log(response.data)
+        this.setState({
+          categories: response.data.results,
+          total: response.data.count,
+          currentPage: response.data.pagenumber,
+          itemsPerPage: 8
+        })
 
-    })
+      })
 
-    .catch((error) => {
-      console.log(error.response);
-      this.props.history.push('/login')
-    });
+      .catch((error) => {
+        console.log(error.response);
+        this.props.history.push('/login')
+      });
   }
 
   handleSearchClick = (event, pages) => {
@@ -168,16 +184,18 @@ class ViewCategories extends Component {
     const category_name = this.state.category_name
     console.log(category_name)
     searchClickCategories(category_name, pages)
-    .then((response) => {
-      console.log(response.data)
-      // console.log(response.data.count)
-      this.setState({ categories: response.data.results,
-        search:true,
-        currentPage:response.data.pagenumber,
-       itemsPerPage:8})
+      .then((response) => {
+        console.log(response.data)
+        // console.log(response.data.count)
+        this.setState({
+          categories: response.data.results,
+          search: true,
+          currentPage: response.data.pagenumber,
+          itemsPerPage: 8
+        })
 
-    })
-}
+      })
+  }
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -191,40 +209,40 @@ class ViewCategories extends Component {
         category_id={categories.category_id} key={categories.category_id}
       />)
       )
-      
-      const { total, search }=this.state
-        let loadPagination;
-        const pageNumbers = [];
-       if(total > 8){
-           for (let i = 1; i <= Math.ceil(total /8); i++) {
-               pageNumbers.push(i);
-           }
-       } else {
-           pageNumbers.push(1);
-       }
-       if (search ===false){
-        loadPagination = 
-        pageNumbers.map((number) => {
-        return(
-            <li className="page-item" key={number} style={{display: 'inline-block'}}>
-            <a className="page-link" onClick={() => this.handleClick(number)} key={number} id={number}>{number}</a>
-            </li> 
-        );  
-        })
-       }
 
-       else if(search === true){
-        loadPagination = 
-    pageNumbers.map((pages) => {
-    return(
-        <li className="page-item" key={pages} style={{display: 'inline-block'}}>
-        <a className="page-link" onClick={event => this.handleSearchClick(event,pages)} key={pages} id={pages}>{pages}</a>
-        </li> 
-    );  
-    })
+    const { total, search } = this.state
+    let loadPagination;
+    const pageNumbers = [];
+    if (total > 8) {
+      for (let i = 1; i <= Math.ceil(total / 8); i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      pageNumbers.push(1);
     }
-               
-      
+    if (search === false) {
+      loadPagination =
+        pageNumbers.map((number) => {
+          return (
+            <li className="page-item" key={number} style={{ display: 'inline-block' }}>
+              <a className="page-link" onClick={() => this.handleClick(number)} key={number} id={number}>{number}</a>
+            </li>
+          );
+        })
+    }
+
+    else if (search === true) {
+      loadPagination =
+        pageNumbers.map((pages) => {
+          return (
+            <li className="page-item" key={pages} style={{ display: 'inline-block' }}>
+              <a className="page-link" onClick={event => this.handleSearchClick(event, pages)} key={pages} id={pages}>{pages}</a>
+            </li>
+          );
+        })
+    }
+
+
     return (
       <div>
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
@@ -239,36 +257,39 @@ class ViewCategories extends Component {
                 <a className="nav-item nav-link" href="/">Home
                     <span className="sr-only">(current)</span>
                 </a>
+                <div className="navbar-nav sign-out">
+                  <a className="nav-item nav-link" onClick={this.onSignout} href='#'>Signout</a>
+                </div>
               </div>
+
             </div>
           </div>
         </nav>
-       
+
         <div className="view-categories-head">
           <div className="view-categories-head">
             <div>
-
-              <h4 className="categories-header"> Categories </h4>
+              <h4 className="categories-header-cat"> Categories </h4>
               <div className="container">
                 <div className="row">
                   <div className="col-6 row justify-content-center">
                     <form className="search-form" onSubmit={this.onSearch} name="search-category">
-                      <input required id ="category-name" type="text" name="category_name" value={this.state.category_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+                      <input required id="category-name" type="text" name="category_name" value={this.state.category_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
                       <button type="submit" className="btn btn-primary mb-2 pxy-4">Search</button>
                     </form>
                   </div>
 
                   <div className="col-6 add-category">
                     <AddCategory getCats={this.onClick} />
-                  
+
                   </div>
                 </div>
               </div>
 
 
-             <ul className="pagination justify-content-center">
-        {loadPagination}
-      </ul>
+              <ul className="pagination justify-content-center">
+                {loadPagination}
+              </ul>
 
               <div className='view-categories'>
                 <div>
@@ -286,9 +307,9 @@ class ViewCategories extends Component {
                         <strong>Ooops!</strong> There are no categories to
                                         display. Please add some.
                             </div>
-                            
+
                     </div>}
-            
+
                 </div>
               </div>
 
