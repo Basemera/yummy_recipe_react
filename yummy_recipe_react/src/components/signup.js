@@ -5,7 +5,11 @@ import { Redirect, Link } from 'react-router-dom';
 import { signUpUser } from '../api_wrapper/users';
 import { userSignUp, deleteCategory, getCategories, editCategory } from '../api_wrapper/users';
 import SignUpCard from './signUpCard'
+import VideoPlayer from './VideoPlayer'
 
+/**
+ * Component for registering a user.*
+ */
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -38,8 +42,8 @@ class SignUp extends Component {
         )
       })
       .catch((error) => {
-        console.log(error.response.data);
-        toastr.error(error.response.data)
+        console.log("----->", error.response.data);
+        toastr.error('Username and firstname cannot begin with numbers, email should have an @ and .com and password must be more than 9 characters')
       });
     this.setState({
       username: '',
@@ -57,7 +61,11 @@ class SignUp extends Component {
     }
     const { username, firstname, email, password, confirm_password } = this.state
     return (
-    <SignUpCard {...this.state} handleInputChange={this.handleInputChange} onClick={this.onClick}/>
-    )}
+      <div id="wrapper">
+
+        <SignUpCard {...this.state} handleInputChange={this.handleInputChange} onClick={this.onClick} />
+      </div>
+    )
+  }
 }
 export default SignUp;

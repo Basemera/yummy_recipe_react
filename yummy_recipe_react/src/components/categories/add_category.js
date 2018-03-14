@@ -5,6 +5,9 @@ import toastr from 'toastr';
 import {Redirect} from 'react-router-dom';
 import {createCategory} from '../../api_wrapper/categories'
 
+/**
+ * Component to add categories*.
+ */
 class AddCategory extends Component{
   constructor(props) {
     super(props);

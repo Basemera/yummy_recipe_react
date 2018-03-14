@@ -14,6 +14,7 @@ import DeleteCategory from './components/categories/delete_category'
 import ViewRecipes from './components/recipes/view_recipes'
 import AddRecipe from './components/recipes/add_recipes'
 import EditRecipe from './components/recipes/edit_recipes'
+import NotFound from './components/404'
 
 import HeaderView from './components/header'
 import './css/style.css';
@@ -37,6 +38,7 @@ class App extends Component {
         <Route exact path ="/view-recipes/:category_id" component={ViewRecipes}/>
         <Route exact path ="/add-recipe/:category_id/:recipe_id" component={AddRecipe}/>
         <Route exact path ="/edit-recipe/:category/:recipe_id" component={EditRecipe}/>
+        <Route component={NotFound}/>
       </Switch>
     </div>
   </BrowserRouter>

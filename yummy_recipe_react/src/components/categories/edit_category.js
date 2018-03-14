@@ -5,6 +5,9 @@ import toastr from 'toastr';
 import { Redirect, Link } from 'react-router-dom';
 import { deleteCategory, getCategories, editCategory } from '../../api_wrapper/categories';
 
+/**
+ * Component to edit categories*.
+ */
 class EditCategory extends Component {
     constructor(props) {
         super(props);

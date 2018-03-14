@@ -5,6 +5,9 @@ import { notify } from 'react-notify-toast';
 import { Redirect } from 'react-router-dom';
 import {deleteCategory} from '../../api_wrapper/categories'
 
+/**
+ * Component to delete categories*.
+ */
 class DeleteCategory extends Component {
     constructor(props) {
         super(props);

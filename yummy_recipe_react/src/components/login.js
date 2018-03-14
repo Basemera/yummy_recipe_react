@@ -3,6 +3,10 @@ import { logInUser } from '../api_wrapper/users';
 import LoginCard from './loginCard'
 import { setToken } from '../utils/authservice';
 import toastr from 'toastr';
+
+/**
+ * Component for to log in a user*.
+ */
 class LogIn extends Component {
   state = {
     username: '',
@@ -25,6 +29,7 @@ class LogIn extends Component {
         this.props.history.push('/view-categories')
       })
       .catch(function (error) {
+        console.log(error.response.data.message)
         toastr.error(error.response.data.message)
       });
   }
@@ -32,8 +37,10 @@ class LogIn extends Component {
     const { username, password } = this.state
     return (
       <React.Fragment>
-      <LoginCard {...this.state} handleInputChange={this.handleInputChange} onClick={this.onClick}/>
-    </React.Fragment>
+        <div id="wrapper">
+          <LoginCard {...this.state} handleInputChange={this.handleInputChange} onClick={this.onClick}/>
+        </div>
+      </React.Fragment>
     )
   }
 }
