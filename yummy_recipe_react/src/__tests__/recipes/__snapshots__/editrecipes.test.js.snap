@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Edit recipe component edits recipes renders the edit recipe form and submits data 1`] = `
+<div>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="jumbotron"
+      >
+        <p>
+           Edit Recipe
+        </p>
+        <form
+          className="form-inline"
+          id="editrecipe"
+          name="edit-recipe"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <input
+              className="form-group"
+              id="recipe-name"
+              name="recipe-name"
+              onChange={[Function]}
+              placeholder="recipe name"
+              required={true}
+              value="apples"
+            />
+          </div>
+          <div>
+            <input
+              className="form-group"
+              id="description"
+              name="description"
+              onChange={[Function]}
+              placeholder="description"
+              required={true}
+              value="this is me"
+            />
+          </div>
+          <div
+            className="col-sm-offset-5 col-sm-5"
+          >
+            <button
+              className="btn btn-success"
+              type="submit"
+            >
+              Edit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
