@@ -117,7 +117,7 @@ const setUp = (category_name, category_id) => {
     
     it('submit button', () => {
         const input = wrapper.find('button').at(0);
-        expect(input.props().type).toEqual('button');
+        expect(input.props().type).toEqual('submit');
       });
     
       it('Form exists', () => {
@@ -189,10 +189,6 @@ const setUp = (category_name, category_id) => {
     it('should render <ViewCategories /> component', () => {
         const wrapper = shallow(<CategoryToRender />)
         expect(wrapper.length).toEqual(1)
-    });
-
-    it('renders two nav jsx elements', () => {
-        expect(wrapper.find("nav")).toHaveLength(1);        
     });
     
     });

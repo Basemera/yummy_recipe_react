@@ -17,21 +17,26 @@ import { getToken } from '../../utils/authservice';
 
 const CategoryToRender = (props) => (
   <div className="col-md-6 col-lg-3 category-card">
-    <div className="card mb-3">
+    {/* <div className="card mb-3"> */}
       <div className="card">
-        <div className="card-header">
+        <div className="card-header text-center">
           {props.category_name}
         </div>
         <div className="card-block">
           <div className='card-body'>
-            <i className="fa fa-edit" onClick={() => props.OneditItem(props.category_id, props.category_name)} />
+           <button className="btn btn-primary">Edit
+          <i className="fa fa-edit" onClick={() => props.OneditItem(props.category_id, props.category_name)} />
+           </button>
+            <button className="btn btn-danger">Delete
             <i className="fa fa-trash" onClick={() => props.onDelete(props.category_id, props.category_name)} data-id={props.category_id} />
+            </button>
+            
           </div>
-          <h5 className='card-footer'>
+          <h5>
             <Link to='#' onClick={() => props.onView(props.category_id)}>Recipes</Link>
           </h5>
         </div>
-      </div>
+      {/* </div> */}
 
     </div>
   </div>
@@ -148,17 +153,17 @@ class ViewCategories extends Component {
           this.props.history.push('/login')
         }
         // this.props.history.push('/login')
-        console.log(error.response.data.message)
+        // console.log(error.response.data.message)
       });
   }
 
-  onSignout = () => {
-    const AUTH_TOKEN_KEY = 'token';
-    const setToken = token => localStorage.setItem(AUTH_TOKEN_KEY, token);
-    const clearToken = () => localStorage.removeItem(AUTH_TOKEN_KEY);
-    clearToken()
-    this.props.history.push('/')
-  }
+  // onSignout = () => {
+  //   const AUTH_TOKEN_KEY = 'token';
+  //   const setToken = token => localStorage.setItem(AUTH_TOKEN_KEY, token);
+  //   const clearToken = () => localStorage.removeItem(AUTH_TOKEN_KEY);
+  //   clearToken()
+  //   this.props.history.push('/login')
+  // }
 
   handleClick(number) {
     categoriesSearchChangePage(number)
@@ -205,9 +210,11 @@ class ViewCategories extends Component {
 
   render() {
     let categoryitems =
-      this.state.categories.map(categories => (<CategoryToRender onView={this.onView} onDelete={this.onDelete} OneditItem={this.OneditItem} category_name={categories.category_name}
-        category_id={categories.category_id} key={categories.category_id}
-      />)
+      this.state.categories.map((categories) => {
+        return( 
+        <CategoryToRender onView={this.onView} onDelete={this.onDelete} OneditItem={this.OneditItem} category_name={categories.category_name}
+        category_id={categories.category_id} key={categories.category_id}/>
+        )}
       )
 
     const { total, search } = this.state
@@ -245,61 +252,37 @@ class ViewCategories extends Component {
 
     return (
       <div>
-        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-          <div className="container">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-              aria-controls="navbarNavAltMarkup"
-              aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div className="navbar-nav">
-                <a className="nav-item nav-link" href="/">Home
-                    <span className="sr-only">(current)</span>
-                </a>
-                <div className="navbar-nav sign-out">
-                  <a className="nav-item nav-link" onClick={this.onSignout} href='#'>Signout</a>
-                </div>
-              </div>
 
-            </div>
-          </div>
-        </nav>
-
-        <div className="view-categories-head">
+       
           <div className="view-categories-head">
-            <div>
+           
               <h4 className="categories-header-cat"> Categories </h4>
               <div className="container">
                 <div className="row">
-                  <div className="col-6 row justify-content-center">
+                  <div className="col-6 search-form">
                     <form className="search-form" onSubmit={this.onSearch} name="search-category">
-                      <input required id="category-name" type="text" name="category_name" value={this.state.category_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
-                      <button type="submit" className="btn btn-primary mb-2 pxy-4">Search</button>
+                      <input className="search-form" required id="category-name" type="text" name="category_name" value={this.state.category_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder="Category name"></input>
+                      <button type="submit" className="btn btn-primary">Search</button>
                     </form>
                   </div>
 
-                  <div className="col-6 add-category">
+                  <div className=" mb-2 mr-sm-2 add-category">
                     <AddCategory getCats={this.onClick} />
 
                   </div>
-                </div>
-              </div>
-
-
-              <ul className="pagination justify-content-center">
-                {loadPagination}
-              </ul>
 
               <div className='view-categories'>
-                <div>
-                  <p className="view-categories-title">
+                <div className="view-categories-title center">
+                  <p>
                     <Link to="/view-categories" onClick={this.onClick}>
                       View all categories
-     </Link>
+                    </Link>
                   </p>
                 </div>
+                </div>
                 <div className="row">
+                <div className='view-categories'>
+                <div className="this">
                   {this.state.categories.length
                     ? categoryitems
                     : <div className="col-sm-2 offset-sm-5" className="no-categories">
@@ -307,25 +290,21 @@ class ViewCategories extends Component {
                         <strong>Ooops!</strong> There are no categories to
                                         display. Please add some.
                             </div>
-
                     </div>}
-
+                    <div className="text-center">
+                      <ul className="pagination">
+                        {loadPagination}
+                      </ul>
+                    </div>
                 </div>
               </div>
-
-
-
-
-
+             
             </div>
-
           </div>
         </div>
-
-      </div>);
-
+      </div>
+      </div>
+      );
   }
-
-
 }
 export default ViewCategories;

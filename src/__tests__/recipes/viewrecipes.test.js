@@ -140,7 +140,7 @@ import AddRecipes from '../../components/recipes/add_recipes'
         });
 
         it('renders nine div jsx elements', () => {
-            expect(wrapper.find("div")).toHaveLength(14);
+            expect(wrapper.find("div")).toHaveLength(12);
         });
 
         it('renders one Link jsx elements', () => {

@@ -1,17 +1,9 @@
 language: node_js
-
 node_js:
-  - "4"
-  - "5"
-  - "6"
-  - "stable"
-
-sudo: false
-
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - "8.9.4"
 
 script:
-  - npm install
-  - npm test
+  - npm test -- -u --coverage 
+
+after_success:
+  - coveralls < coverage/lcov.info

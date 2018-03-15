@@ -28,12 +28,20 @@ html, body {
   grid-template-columns: auto auto;
   grid-gap: 5px;
 }
+a {
+  color: #9d02d8;
+}
 
 .urls btn {
   border-radius: 10px;
   background-color: rgb(212, 204, 204);
   margin: 2em;
   
+}
+
+h5 {
+  margin-top: 2px;
+  margin-left: 41px;
 }
 
 #header {
@@ -91,13 +99,11 @@ label.control-label {
 }
 
 .category-card {
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
-  margin-right: 15px;
-  margin-bottom: 0;
-  margin-left: 15px;
-  width: 100px;
-  height: 220px;
+  margin-right: 12px;
+  /* margin-bottom: 0; */
+  margin-left: 77px;
+  /* width: 100px; */
+  height: 255px;
 }
 .card-deck .card {
   
@@ -184,10 +190,10 @@ label.control-label {
 }
 
 .view-categories-head {
-  background: url('images/signup-image.jpg') no-repeat;
+  background: url('images/meal-plan-bg.jpg') no-repeat;
   background-size: cover;
   min-height: 100%;
-  margin-top: 50px;
+  margin-top: -13px;
 }
 
 .no-categories {
@@ -205,10 +211,15 @@ label.control-label {
   margin-top:5%;
 }
 
+.small, small {
+  font-size: 117%;
+  margin-right: 125px;
+}
+
 .categories-header-cat {
   text-align: center;
   font-size: 30px;
-  color: rgb(43, 90, 222);
+  color: rgb(197, 43, 222);
   font-family: 'Lobster', cursive;
   margin-top:1%;
 }
@@ -218,9 +229,21 @@ label.control-label {
   width: fit-content;
   height: fit-content;
   margin-left: 400px;
-  margin-top: -100px;
+  margin-top: -138px;
 }
 
+p.categories-header.header {
+  margin-top: 1%;
+  font-size: larger;
+}
+
+.form-inline {
+  margin-left: 171px;}
+
+.search-form-recipes {
+  margin-right: 472px;
+  margin-top: 46px;
+}
 .addcategory-form {
   background: url('images/restaurant_icons.png') no-repeat;
   font-family: 'Karla', sans-serif;
@@ -234,6 +257,8 @@ label.control-label {
   font-size: 30px;
   color: rgb(43, 90, 222);
   font-family: 'Lobster', cursive;
+  margin-left: 419px;
+  margin-top: -5rem;
 }
 
 .submit-button {
@@ -291,6 +316,16 @@ input.username {
   border-bottom-left-radius: 0;
 }
 
+.pagination{
+  margin-left: 555px;
+  margin-top: -33px;
+}
+
+.view-categories {
+  margin-top: -48px;
+  margin-top:-7px;
+}
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
@@ -312,18 +347,26 @@ input.username {
 
 .search-form {
   margin-right: 100px;
+  margin-top: -65px;
+  margin-left: -31px;
+  width: 300px;
 }
 
 .search-form-recipes {
-  margin-right: 600px;
-  margin-top: 150px;
+  margin-right: 10px;
+  margin-top: 50px;
+  margin-left: -31px;
+  width: 300px;
 }
 
 .recipes-view {
-  background: url('images/signup-image.jpg') no-repeat;
+  background: url('images/meal-plan-bg.jpg') no-repeat;
   background-size: cover;
   min-height: 100%;
-  margin-top: 0px;
+  margin-top: -136px;
+  padding-bottom: 550px;
+  margin-bottom: -454px;
+  width: 100%;
 }
 .recipe-card{
     /* margin-right: 1px;
@@ -373,11 +416,101 @@ input.username {
   color: white;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #f5f5f5;
+}
+
+.btn-danger {
+  color: #ddd;
+  background-color: #d9534f;
+  border-color: #d9534f;
+  /* float: right; */
+  margin-top: -64px;
+  margin-left: 100px;
+}
+
 .back-categories{
   margin-top:5%;;
+}
+
+.card-header:first-child {
+  border-radius: .25rem .25rem 0 0;
+  background-color: #e77fff75;
+  font-size: larger;
 }
 
 .card-block{ 
   padding:0;
   margin-bottom:0%;
+  background-color: #b6e85630;
  }
+
+ .fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f9c4ff8c;
+  z-index: 1030;
+  height:3%
+}
+.collapse.show {
+  display: block;
+  background-color: beige;
+}
+.jumbotron {
+  /* padding: 4rem 2rem; */
+  background-color: #f5b3e6;
+  -webkit-text-fill-color: black;
+}
+
+.test {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  color: #212529;
+}
+.container{
+  margin-top: 135px;
+  margin-left: 353px;
+}
+.row {
+  margin-left: -8.9375rem;
+  margin-top: -2rem;
+}
+.row this{
+  margin-right: 0.0625rem;
+  margin-left: -2rem;
+}
+
+
+.recipes{
+  /* margin-left: -97px;
+  width: 100%; */
+  margin-left: -364px;
+  margin-top: -1rem;
+  width: 90rem;
+}
+.bg-primary{
+  margin-top: -120px;
+  margin-left: -271px;
+}
+/* .col-6 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-left: 530px;
+  margin-top: -95px;
+  margin-bottom: 15px;
+} */
+.add-recipe{
+  margin-top: -71px;
+  /* margin-bottom: 1rem; */
+  color: black;
+  margin-right: -6px;
+  margin-left: 605px;
+  font-size: 23px;
+}
+/*  */

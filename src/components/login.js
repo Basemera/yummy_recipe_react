@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 import { logInUser } from '../api_wrapper/users';
 import LoginCard from './loginCard'
 import { setToken } from '../utils/authservice';
 import toastr from 'toastr';
+import PropTypes from 'prop-types';
 
 /**
  * Component to log in a user*.
@@ -13,6 +15,9 @@ class LogIn extends Component {
     password: '',
     loginSuccess: false
   };
+static propTypes = {
+  login: PropTypes.func.isRequired
+}
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,7 +31,8 @@ class LogIn extends Component {
       .then((response) => {
         toastr.success('User logged in successfully')
         setToken(response.data.token)
-        this.props.history.push('/view-categories')
+        this.props.login()
+        // this.props.history.push('/view-categories')
       })
       .catch(function (error) {
         console.log(error.response.data.message)
@@ -35,6 +41,16 @@ class LogIn extends Component {
   }
   render() {
     const { username, password } = this.state
+    // const {from} = this.props.location.state || {
+    //   from: {
+    //       pathname: 
+    //   }
+  // }
+
+  if (this.props.loggedIn) {
+      return (<Redirect to='/view-categories'/>)
+  }
+
     return (
       <React.Fragment>
         <div id="wrapper">

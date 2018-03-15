@@ -3,26 +3,37 @@ import { Link } from 'react-router-dom';
 import img1 from '../css/images/img1.jpeg';
 import img2 from '../css/images/img2.jpg';
 import img3 from '../css/images/img3.jpeg';
+import PropTypes from 'prop-types';
 
 /**
  * Component to load the landing page*.
  */
 
 class HomeView extends Component {
+// Prop validation
+static propTypes = {
+  loggedIn: PropTypes.bool
+}
+static defaultProps = {
+  loggedIn: false
+}
+
+componentDidMount(){
+  if (this.props.loggedIn){
+    this.props.history.push('/view-categories')
+  }
+}
   render() {
-
-
     return (
-
       <div className="background">
         <div className='navigation'>
           <div id='header'>Yummy Recipe App</div>
-          <div className='nav'>
+          {/* <div className='nav'>
             <div className='urls'>
               <Link to="/register" id="signup" className="btn btn-primary"> Signup</Link>
               <Link to="/login" id="login" className="btn btn-primary">Login</Link>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div id="carouselExampleIndicators" className="carousel slide carouse-slider" data-ride="carousel">
