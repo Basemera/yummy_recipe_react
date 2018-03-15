@@ -55,7 +55,9 @@ class SignUp extends Component {
   }
 
   render() {
-
+    if (this.props.loggedIn) {
+      return (<Redirect to='/view-categories'/>)
+  }
     if (this.state.loginSuccess) {
       return (<Redirect to='/login' />)
     }

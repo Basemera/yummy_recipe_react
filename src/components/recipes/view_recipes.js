@@ -21,7 +21,7 @@ class ViewRecipes extends Component {
             category_id: this.props.match.params.category_id,
             // category_name: this.props.match.params.category_name,
             recipe_name: "",
-            description:"",
+            description: "",
             total: "",
             currentPage: "",
             itemsPerPage: "",
@@ -65,7 +65,7 @@ class ViewRecipes extends Component {
                 this.setState({
                     recipes: response.data.results,
                     recipe_name: "",
-                    description:"",
+                    description: "",
                     total: response.data.count
                 });
             })
@@ -86,7 +86,7 @@ class ViewRecipes extends Component {
                 this.setState({
                     recipes: response.data.results,
                     currentPage: response.data.pagenumber,
-                    itemsPerPage: 4
+                    itemsPerPage: 6
                 })
 
             })
@@ -101,7 +101,7 @@ class ViewRecipes extends Component {
                 this.setState({
                     recipes: response.data.results,
                     currentPage: response.data.pagenumber,
-                    itemsPerPage: 4
+                    itemsPerPage: 6
                 })
 
             })
@@ -165,47 +165,47 @@ class ViewRecipes extends Component {
     render() {
         let recipeitems = this.state.recipes.map(
             recipes => (
-            <div className="col-md-4 col-lg-4 recipe-card">
-                <li>
+                <div className="col-md-4 col-lg-4 recipe-card">
+                    <li>
 
-                    <div id="${recipes.recipe_id}">
-                    <div className="panel">
-                        <div className="card">
-                            <div className="card-header" id="${recipes.recipe_id}">
-                                <h5 className="mb-0">
-                                    <button className="btn btn-link" data-toggle="collapse" aria-labelledby="${recipes.recipe_id}" data-target="#${recipes.recipe_id}" aria-expanded="false" aria-controls="${recipes.recipe_name}">
-                                        {recipes.recipe_name}
-                                    </button>
-                                </h5>
-                            </div>
+                        <div id="${recipes.recipe_id}">
+                            <div className="panel">
+                                <div className="card">
+                                    <div className="card-header" id="#accordion">
+                                        <h5 className="mb-0">
+                                            <button className="btn btn-link" data-toggle="collapse" aria-labelledby="${recipes.recipe_id}" data-target={`#${recipes.recipe_id}`} aria-expanded="false" aria-controls="${recipes.recipe_name}">
+                                                {recipes.recipe_name}
+                                            </button>
+                                        </h5>
+                                    </div>
 
-                            <div id="${recipes.recipe_id}" className="collapse" data-parent="#${recipes.recipe_id}">
-                                <p>
-                                {recipes.description}
-      </p>
-                                <Link id="recipe-link" to="#" onClick={() => this.OneditItem(recipes.recipe_id, recipes.category, recipes.recipe_name, recipes.description)}>
+                                    <div id={recipes.recipe_id} className="collapse" data-parent="accordion">
+                                        <p className="test">
+                                            {recipes.description}
+                                        </p>
+                                        <Link id="recipe-link" to="#" onClick={() => this.OneditItem(recipes.recipe_id, recipes.category, recipes.recipe_name, recipes.description)}>
 
-                                    <i className='fa fa-edit' />
-                                </Link>
-                                <Link to="#" onClick={() => this.onDelete(recipes.recipe_id, recipes.recipe_name, recipes.category)} className="confirm-delete" data-id={recipes.recipe_id}>
-                                    <i className='fa fa-trash' />
-                                </Link>
+                                            <i className='fa fa-edit' />
+                                        </Link>
+                                        <Link to="#" onClick={() => this.onDelete(recipes.recipe_id, recipes.recipe_name, recipes.category)} className="confirm-delete" data-id={recipes.recipe_id}>
+                                            <i className='fa fa-trash' />
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
 
-                </li>
+                    </li>
 
-            </div>
+                </div>
             )
         )
 
         const { total, search } = this.state
         let loadPagination;
         const pageNumbers = [];
-        if (total > 4) {
-            for (let i = 1; i <= Math.ceil(total / 4); i++) {
+        if (total > 6) {
+            for (let i = 1; i <= Math.ceil(total / 6); i++) {
                 pageNumbers.push(i);
             }
         } else {
@@ -259,37 +259,27 @@ class ViewRecipes extends Component {
                     </div>
                 </nav>
                 <div className="recipes-view">
-                    <h5 className='card-footer'>
-                        {/* <div className="back-categories">
-                            <Link to='#' onClick={() => this.onView()}>{this.state.category_name} Back to categories</Link>
-                        </div> */}
-                    </h5>
                     <div className="container">
-                        <div className="row">
+                        {/* <div className="row"> */}
 
-                            <p className="categories-header">
-                                <Link to='#' onClick={() => this.onView()}>{this.state.category_name} Back to categories</Link>
-                            </p>
-                            <div className="col-4 row justify-content-center">
-                                <form className="search-form-recipes" onSubmit={this.onSearch} name="search-recipes">
-                                    <input className="form-group" name="recipe_name" value={this.state.recipe_name} placeholder='recipe name' onChange={this.handleInputChange} />
-                                    <button type="submit" className="btn btn-primary mb-2 pxy-4">Search</button>
-                                </form>
-                            </div>
-                            <div>
-                                <div className="col-6 add-recipe">
-                                    <AddRecipe getRecipes={this.onClick} category_id={this.state.category_id} />
-                                </div>
-
-
-
-                            </div>
-
+                        <p className="categories-header header">
+                            <Link to='#' onClick={() => this.onView()}>{this.state.category_name} Back to categories</Link>
+                        </p>
+                        <div className="col-6 search-form">
+                            <form className="search-form-recipes" onSubmit={this.onSearch} name="search-recipes">
+                                <input className="search-form" type="text" name="recipe_name" value={this.state.recipe_name} onChange={this.handleInputChange} className="form-control mb-2 mr-sm-2" placeholder='recipe name'></input>
+                                <button type="submit" className="btn btn-primary">Search</button>
+                            </form>
                         </div>
-                        <ul className="pagination justify-content-center">
-                            {loadPagination}
-                        </ul>
-                        <div className="row">
+                        {/* <div className="col-4 search-form-recipes">
+                            <form onSubmit={this.onSearch} name="search-recipes">
+                                <input className="form-group" name="recipe_name" value={this.state.recipe_name} placeholder='recipe name' onChange={this.handleInputChange} />
+                                <button type="submit" className="btn btn-primary mb-2 pxy-4">Search</button>
+                            </form>
+                        </div> */}
+                        <AddRecipe getRecipes={this.onClick} category_id={this.state.category_id} />
+
+                        <div className="row recipes">
                             {this.state.recipes.length
                                 ? recipeitems
                                 : <div className="col-sm-4 col-lg-4" className="no-categories">
@@ -298,9 +288,15 @@ class ViewRecipes extends Component {
                                                         display. Please add some.
                             </div>
                                 </div>}
+
                         </div>
                     </div>
 
+                </div>
+                <div className="text-center">
+                    <ul className="pagination">
+                        {loadPagination}
+                    </ul>
                 </div>
             </div>
         )

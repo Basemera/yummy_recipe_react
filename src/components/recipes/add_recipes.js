@@ -56,12 +56,12 @@ class AddRecipe extends Component {
   render() {
     const { recipe_name, description } = this.state
     return (
-      <div>
-        <div className="container">
+      <div className="col-6 add-recipe">
+        {/* <div className="container">
           <div className="row">
-            <div className='jumbotron addrecipe-form'>
+            <div className='jumbotron addrecipe-form'> */}
 
-              <p> Add recipe</p>
+              {/* // <p> Add recipe</p> */}
 
               <form className="form-inline" onSubmit={this.onClick} name="add-recipe">
 
@@ -75,15 +75,13 @@ class AddRecipe extends Component {
                 </div>
 
                 <div className="col-sm-offset-5 col-sm-5">
-                  <button type="submit" className="btn btn-success">Add</button>
+                  <button type="submit" className="btn btn-success">Add recipe</button>
                 </div>
-
-
               </form>
-            </div>
+            {/* </div>
 
           </div>
-        </div>
+        </div> */}
 
       </div>);
 
