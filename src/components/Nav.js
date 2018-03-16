@@ -30,9 +30,6 @@ const Nav = (props) => (
               )
               }
                   </div>
-                {/* <div className="navbar-nav sign-out">
-                  <Link className="nav-item nav-link" to = "#" onClick={(event) => {props.logout(event)}}>Signout</Link>
-                </div> */}
               </div>
 
             </div>

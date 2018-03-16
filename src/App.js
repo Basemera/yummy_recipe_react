@@ -20,7 +20,7 @@ import HeaderView from './components/header'
 import Footer from './components/footer'
 import './css/style.css';
 import ProtectedRoute from './components/ProtectedRoute'
-import Nav from './components/Nav'
+import  Nav from './components/Nav'
 
 
 class App extends Component {
