@@ -29,17 +29,19 @@ class AddCategory extends Component {
     const { category_name } = this.state;
     createCategory({ category_name })
       .then((response) => {
-        toastr.success(response.data.message)
-        this.props.getCats();
-        this.props.history.push('/view-category')
         this.setState({ categoryaddedSuccess: true })
+        this.props.getCats();
+        toastr.success(response.data.message)
+        this.props.history.push('/view-categories')
+        console.log(response.data)
 
       })
       .catch(function (error) {
-
+      
         if (error.response) {
           const { data: { message } } = error.response;
           toastr.error(message)
+          console.log(message)
         }
       });
     this.setState({

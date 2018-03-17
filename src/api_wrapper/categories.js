@@ -2,7 +2,7 @@ import {post, get, put, del} from './api_wrapper';
 import { getTokenConfig } from '../utils/authservice'
 
 
-export const createCategory = (data) => post('http://127.0.0.1:5000/category', data, getTokenConfig());
+export const createCategory = (data) => post('/category', data, getTokenConfig());
 
 export const getCategories = () => get('/category', getTokenConfig());
 

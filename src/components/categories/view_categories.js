@@ -36,7 +36,6 @@ const CategoryToRender = (props) => (
             <Link to='#' onClick={() => props.onView(props.category_id)}>Recipes</Link>
           </h5>
         </div>
-      {/* </div> */}
 
     </div>
   </div>
@@ -134,7 +133,7 @@ class ViewCategories extends Component {
   }
 
   onClick = () => {
-    this.setState({ category_name: "" })
+    // this.setState({ category_name: "" })
     getCategories()
       .then((response) => {
         console.log(response.data.results)
