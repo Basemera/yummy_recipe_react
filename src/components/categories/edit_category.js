@@ -56,13 +56,10 @@ class EditCategory extends Component {
                                     <label className="control-label col-sm-4 label-edit" for="add-category">Category Name:</label>
                                     <input id="category-name" className="category-info" required name="category_name" value={this.state.category_name} onChange={this.handleInputChange} />
                                 </div>
-                                <div className="form-group">
-                                    <div className="col-sm-offset-5 col-sm-5">
-                                        <button type="submit" className="btn btn-success edit-button">Edit</button> 
-                                        </div>
-                                        <div>
-                                        <Link to="/view-categories" className="btn btn-success cancel-button">Cancel</Link>
-                                    </div>
+                                <div className="form-group editing">
+                                    {/* <div className="col-sm-offset-5 col-sm-5"> */}
+                                        <button type="submit" className="btn btn-success">Edit</button> 
+                                        <Link to="/view-categories" className="btn btn-success">Cancel</Link>
                                 </div>
 
 
