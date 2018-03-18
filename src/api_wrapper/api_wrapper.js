@@ -14,7 +14,7 @@ const getInitialiseApi = () => {
     return api;
 };
 
-const baseurl = () => "https://basemera-recipes.herokuapp.com";
+const baseurl = () => "https://basemera-recipes.herokuapp.com/";
 
 export const get = (url, config = null) => getInitialiseApi().get(url, config)
 

@@ -12,7 +12,7 @@ class EditCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            'category_name': this.props.match.params.category_name,
+            'category_name': this.props.category_name,
             'successfuledit': false
         }
     }
@@ -24,14 +24,15 @@ class EditCategory extends Component {
     onClick = event => {
         event.preventDefault();
         const { category_name } = this.state;
-        const category_id = this.props.match.params.category_id;
+        const category_id = this.props.category_id;
         const data = { category_name: this.state.category_name }
         editCategory(category_id, { category_name: this.state.category_name })
             .then((response) => {
                 console.log(response.data);
+                this.setState({ successfuledit: true })
                 toastr.success(response.data.message)
                 this.props.history.push('/view-categories')
-                this.setState({ successfuledit: true })
+                
             })
             .catch((error) => {
                 toastr.error(error.response.data.message)
