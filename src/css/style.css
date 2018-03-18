@@ -513,4 +513,23 @@ p {
   margin-left: 605px;
   font-size: 23px;
 }
+
+.label-edit{
+  margin-top: 0em !important;
+  margin-left: -1em !important;
+}
+
+.category-info{
+  margin-left: 2em;
+}
+
+.edit-button{
+  margin-right: 7em;
+  margin-left: -4em;
+}
+
+.cancel-button{
+  margin-left: 150px;
+  margin-top: -61px;
+}
 /*  */
