@@ -11,6 +11,7 @@ import AddCategory from './add_category';
 import { deleteCategory, getCategories, editCategory, searchCategories, categoriesSearchChangePage, searchClickCategories } from '../../api_wrapper/categories';
 import Paginator from '../pagination'
 import { getToken } from '../../utils/authservice';
+import EditCategory from './edit_category';
 
 
 
@@ -24,11 +25,11 @@ const CategoryToRender = (props) => (
         </div>
         <div className="card-block">
           <div className='card-body'>
-           <button className="btn btn-primary">Edit
-          <i className="fa fa-edit" onClick={() => props.OneditItem(props.category_id, props.category_name)} />
+           <button className="btn btn-primary" onClick={() => props.OneditItem(props.category_id, props.category_name)}>Edit
+          <i className="fa fa-edit"/>
            </button>
-            <button className="btn btn-danger">Delete
-            <i className="fa fa-trash" onClick={() => props.onDelete(props.category_id, props.category_name)} data-id={props.category_id} />
+            <button className="btn btn-danger" onClick={() => props.onDelete(props.category_id, props.category_name)} data-id={props.category_id}>Delete
+            <i className="fa fa-trash"/>
             </button>
             
           </div>
@@ -51,6 +52,7 @@ class ViewCategories extends Component {
     this.state = {
       categories: [],
       category_name: "",
+      category_id: "",
       search: "",
       total: "",
       currentPage: "",
