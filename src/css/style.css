@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster|Patua+One|Tillana');
-html, body {
+@import url("https://fonts.googleapis.com/css?family=Lobster|Patua+One|Tillana");
+html,
+body {
   margin: 0;
 }
 
@@ -19,11 +20,11 @@ html, body {
   grid-template-columns: 80% auto;
 }
 
-.nav{
+.nav {
   margin-top: 2em;
 }
 
-.nav .urls{
+.nav .urls {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 5px;
@@ -36,7 +37,6 @@ a {
   border-radius: 10px;
   background-color: rgb(212, 204, 204);
   margin: 2em;
-  
 }
 
 h5 {
@@ -45,14 +45,14 @@ h5 {
 }
 
 #header {
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   font-size: 30px;
 }
 
 .Welcome {
   text-align: center;
   color: blueviolet;
-  font-family: 'Tillana', cursive;
+  font-family: "Tillana", cursive;
   font-size: 40px;
   padding-top: 250px;
   display: block;
@@ -73,8 +73,8 @@ h5 {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: .3125rem;
-  padding-bottom: .3125rem;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
@@ -95,7 +95,7 @@ label.control-label {
   width: 10em;
   margin-right: -2em;
   margin-top: 2em;
-  margin-left: 15px
+  margin-left: 15px;
 }
 
 .category-card {
@@ -106,7 +106,6 @@ label.control-label {
   height: 255px;
 }
 .card-deck .card {
-  
 }
 .react-confirm-alert {
   color: red;
@@ -147,11 +146,12 @@ label.control-label {
 }
 
 #wrapper {
-  background: url('images/restaurant_icons.png') no-repeat;
+  background: url("images/restaurant_icons.png") no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 1200px;
+  margin-top: -14em;
 }
 
 .signup-bg-image {
@@ -161,7 +161,7 @@ label.control-label {
 }
 
 .login-bg {
-  background: url('images/restaurant_icons.png') no-repeat;
+  background: url("images/restaurant_icons.png") no-repeat;
   margin-left: 260px;
   margin-top: 0;
   padding-top: 0;
@@ -190,10 +190,17 @@ label.control-label {
 }
 
 .view-categories-head {
-  background: url('images/meal-plan-bg.jpg') no-repeat;
-  background-size: cover;
+  background: url("images/meal-plan-bg.jpg") no-repeat;
+  /* background-size: cover;
   min-height: 100%;
-  margin-top: -13px;
+  margin-top: -13px; */
+  min-height: 100%;
+  min-width: 1024px;
+  width: 537%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .no-categories {
@@ -207,11 +214,12 @@ label.control-label {
   text-align: center;
   font-size: 30px;
   color: rgb(43, 90, 222);
-  font-family: 'Lobster', cursive;
-  margin-top:5%;
+  font-family: "Lobster", cursive;
+  margin-top: 5%;
 }
 
-.small, small {
+.small,
+small {
   font-size: 117%;
   margin-right: 125px;
 }
@@ -220,8 +228,8 @@ label.control-label {
   text-align: center;
   font-size: 30px;
   color: rgb(197, 43, 222);
-  font-family: 'Lobster', cursive;
-  margin-top:1%;
+  font-family: "Lobster", cursive;
+  margin-top: 1%;
 }
 .add-category {
   align-items: center;
@@ -235,18 +243,21 @@ label.control-label {
 p.categories-header.header {
   margin-top: 1%;
   font-size: larger;
+  margin-right: 23em !important;
 }
 
 .form-inline {
-  margin-left: 171px;}
+  margin-left: 171px;
+}
 
 .search-form-recipes {
   margin-right: 472px;
   margin-top: 46px;
+  margin-left: -19em !important;
 }
 .addcategory-form {
-  background: url('images/restaurant_icons.png') no-repeat;
-  font-family: 'Karla', sans-serif;
+  background: url("images/restaurant_icons.png") no-repeat;
+  font-family: "Karla", sans-serif;
   font-size: 20px;
   margin-right: 500px;
   height: fit-content;
@@ -256,7 +267,7 @@ p.categories-header.header {
   text-align: center;
   font-size: 30px;
   color: rgb(43, 90, 222);
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   margin-left: 419px;
   margin-top: -5rem;
 }
@@ -316,14 +327,14 @@ input.username {
   border-bottom-left-radius: 0;
 }
 
-.pagination{
+.pagination {
   margin-left: 555px;
   margin-top: -33px;
 }
 
 .view-categories {
   margin-top: -48px;
-  margin-top:-7px;
+  margin-top: -7px;
 }
 
 .form-signin input[type="password"] {
@@ -333,7 +344,7 @@ input.username {
 }
 
 .addrecipe-form {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-size: 20px;
   margin-right: 500px;
   height: -webkit-fit-content;
@@ -360,7 +371,7 @@ input.username {
 }
 
 .recipes-view {
-  background: url('images/meal-plan-bg.jpg') no-repeat;
+  background: url("images/meal-plan-bg.jpg") no-repeat;
   background-size: cover;
   min-height: 100%;
   margin-top: -136px;
@@ -368,28 +379,27 @@ input.username {
   margin-bottom: -454px;
   width: 100%;
 }
-.recipe-card{
-    /* margin-right: 1px;
-    margin-bottom: 0%;
-    margin-left: 1px; */
-    width: 20%;
-    height: 0%;
+.recipe-card {
+  margin-top: 10px;
+  width: 20%;
+  height: 0%;
+  list-style-type: none;
 }
 .carousel-caption {
   position: absolute;
-    right: 15%;
-    left: 15%;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-    top: 30%;
-    font-weight: 100%;
-    font-size: 3em;
+  right: 15%;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  top: 30%;
+  font-weight: 100%;
+  font-size: 3em;
 }
 
-.caption-header{
+.caption-header {
   font-weight: 100%;
   font-size: 1em;
   color: white;
@@ -399,7 +409,7 @@ input.username {
   font-size: 1em;
   color: #212529;
   background-color: #f7fafd69;
-  height:50%;
+  height: 50%;
 }
 
 .capt h5 {
@@ -409,7 +419,7 @@ input.username {
   background-color: #f7fafd69;
 }
 
-.sign-out{
+.sign-out {
   margin-right: 1000px;
   margin-left: 100%;
   font-size: 1em;
@@ -431,30 +441,30 @@ p {
   margin-left: 100px;
 }
 
-.back-categories{
-  margin-top:5%;;
+.back-categories {
+  margin-top: 5%;
 }
 
 .card-header:first-child {
-  border-radius: .25rem .25rem 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
   background-color: #e77fff75;
   font-size: larger;
 }
 
-.card-block{ 
-  padding:0;
-  margin-bottom:0%;
+.card-block {
+  padding: 0;
+  margin-bottom: 0%;
   background-color: #b6e85630;
- }
+}
 
- .fixed-bottom {
+.fixed-bottom {
   position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: #f9c4ff8c;
   z-index: 1030;
-  height:3%
+  height: 3%;
 }
 .collapse.show {
   display: block;
@@ -471,7 +481,7 @@ p {
   margin-bottom: 3rem;
   color: #212529;
 }
-.container{
+.container {
   margin-top: 135px;
   margin-left: 353px;
 }
@@ -479,20 +489,19 @@ p {
   margin-left: -8.9375rem;
   margin-top: -2rem;
 }
-.row this{
+.row this {
   margin-right: 0.0625rem;
   margin-left: -2rem;
 }
 
-
-.recipes{
+.recipes {
   /* margin-left: -97px;
   width: 100%; */
   margin-left: -364px;
   margin-top: -1rem;
   width: 90rem;
 }
-.bg-primary{
+.bg-primary {
   margin-top: -120px;
   margin-left: -271px;
 }
@@ -505,12 +514,56 @@ p {
   margin-top: -95px;
   margin-bottom: 15px;
 } */
-.add-recipe{
+.add-recipe {
   margin-top: -71px;
   /* margin-bottom: 1rem; */
   color: black;
   margin-right: -6px;
   margin-left: 605px;
   font-size: 23px;
+}
+
+.label-edit {
+  margin-top: 0em !important;
+  margin-left: -1em !important;
+}
+
+.category-info {
+  margin-left: 2em;
+}
+
+.edit-button {
+  margin-right: 7em;
+  margin-left: -4em;
+}
+
+.cancel-button {
+  margin-left: 150px;
+  margin-top: -61px;
+}
+a.btn.btn-info {
+  padding-left: 19px;
+  margin-left: -107px;
+}
+
+.editing {
+  /* margin-bottom: -91px; */
+  margin-right: -24px;
+  margin-left: -175px;
+  margin-top:89px !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.card-width {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: .25rem;
+  width: 251px !important;
 }
 /*  */
