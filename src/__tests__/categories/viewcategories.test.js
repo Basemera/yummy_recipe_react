@@ -3,9 +3,9 @@ import {MemoryRouter, Route} from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer'
-import ViewCategories from '../../components/categories/view_categories'
-import AddCategory from '../../components/categories/add_category';
-import CategoryToRender from '../../components/categories/add_category';
+import ViewCategories from '../../components/categories/viewCategories'
+import AddCategory from '../../components/categories/addCategory';
+import CategoryToRender from '../../components/categories/viewCategories';
 const setUp = (category_name, category_id) => {
     const props = {
         category_name,

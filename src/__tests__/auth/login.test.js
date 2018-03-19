@@ -1,6 +1,6 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import Login from '../../components/login';
+import LogIn from '../../components/logIn';
 import loginCard from '../../components/loginCard';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter, Route } from 'react-router-dom';
@@ -12,23 +12,23 @@ const setUp = (username, password) => {
         handleInputChange: () => {},
         onClick: () => {},
     };
-    return shallow(<login {...props} />);
+    return shallow(<logIn {...props} />);
 };
 
-describe('<Login/>', () => {
+describe('<LogIn/>', () => {
     it('renders Sign in component', () => {
         const wrapper = mount(<MemoryRouter initialEntries={['/login']}>
             <Route
                 exact
                 path="/login"
-                render={() => <Login dispatch={() => {}} />}
+                render={() => <LogIn dispatch={() => {}} />}
             />
         </MemoryRouter>);
-        expect(wrapper.find(Login)).toHaveLength(1);
+        expect(wrapper.find(LogIn)).toHaveLength(1);
     });
 
     it('should render <LoginCard /> component', () => {
-        const wrapper = shallow(<Login />);
+        const wrapper = shallow(<LogIn />);
         expect(wrapper.length).toEqual(1);
     });
 });

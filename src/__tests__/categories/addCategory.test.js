@@ -1,7 +1,7 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount } from 'enzyme';
-import AddCategory from '../../components/categories/add_category'
+import AddCategory from '../../components/categories/addCategory'
 
 const setUp = (category_name) => {
 const props = {
@@ -34,7 +34,7 @@ describe("Test Add category component creates a category", () => {
     })
 
     it('input should respond to change event and change the state', () => {
-        wrapper.find('#category-name').simulate('change', { target: { name: 'category_name', value: 'lunch' } });
+        wrapper.find('#categoryName').simulate('change', { target: { name: 'category_name', value: 'lunch' } });
         expect(wrapper.state('category_name')).toEqual('lunch')
     });
     

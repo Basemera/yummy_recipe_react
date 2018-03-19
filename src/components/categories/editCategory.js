@@ -10,7 +10,7 @@ class EditCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            category_name: this.props.match.params.category_name,
+            category_name: this.props.match.params.categoryName,
             successfuledit: false,
         };
     }
@@ -18,8 +18,10 @@ class EditCategory extends Component {
     onClick = (event) => {
         event.preventDefault();
         const category_id = this.props.match.params.category_id;
+        const category_name = this.props.match.params.categoryName;
         editCategory(category_id, { category_name: this.state.category_name })
             .then((response) => {
+
                 this.setState({ successfuledit: true });
                 toastr.success(response.data.message);
                 this.props.history.push('/view-categories');
@@ -35,6 +37,7 @@ class EditCategory extends Component {
     };
 
     render() {
+        console.log(this.props.match.params);
         return (
             <div>
                 <div className="container">

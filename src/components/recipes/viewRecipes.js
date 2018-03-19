@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import toastr from 'toastr';
-import AddRecipe from './add_recipes';
+import AddRecipe from './addRecipe';
 import {
     deleteRecipes,
     getRecipes,

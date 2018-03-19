@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SignUp from './signup'
+import SignUp from './signUp'
 import {Link} from 'react-router-dom';
 class HeaderView extends Component{
     render() {

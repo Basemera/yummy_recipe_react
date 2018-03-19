@@ -201,6 +201,7 @@ label.control-label {
   position: fixed;
   top: 0;
   left: 0;
+  padding-top: 10px;
 }
 
 .no-categories {
@@ -549,8 +550,8 @@ a.btn.btn-info {
 .editing {
   /* margin-bottom: -91px; */
   margin-right: -24px;
-  margin-left: -175px;
-  margin-top:89px !important;
+  margin-left: 85px;
+  margin-top: 19px !important;
 }
 
 ul {
@@ -560,10 +561,10 @@ ul {
 .card-width {
   position: relative;
   display: block;
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
   background-color: #fff;
   border: 1px solid #e5e5e5;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   width: 251px !important;
 }
 /*  */

@@ -1,7 +1,7 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount } from 'enzyme';
-import EditCategory from '../../components/categories/edit_category'
+import EditCategory from '../../components/categories/editCategory'
 
 const setUp = (category_name, category_id) => {
     const props = {

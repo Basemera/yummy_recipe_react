@@ -11,11 +11,8 @@ exports[`Test Edit recipe component edits recipes renders the edit recipe form a
       <div
         className="jumbotron"
       >
-        <p>
-           Edit Recipe
-        </p>
         <form
-          className="form-inline"
+          className="form-inline editcategory-form"
           id="editrecipe"
           name="edit-recipe"
           onSubmit={[Function]}
@@ -61,19 +58,6 @@ exports[`Test Edit recipe component edits recipes renders the edit recipe form a
             >
               Cancel
             </Link>
-          </div>
-          // 
-          <div
-            className="col-sm-offset-5 col-sm-5"
-          >
-            //     
-            <button
-              className="btn btn-success"
-              type="submit"
-            >
-              Edit
-            </button>
-            // 
           </div>
         </form>
       </div>

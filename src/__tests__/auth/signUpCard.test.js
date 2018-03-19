@@ -1,6 +1,6 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import SignUp from '../../components/signup'
+import SignUp from '../../components/signUp'
 import SignUpCard from '../../components/signUpCard'
 import { shallow } from 'enzyme';
 
@@ -13,7 +13,7 @@ describe('<SignUpCard/>', function () {
 
 it('registers a user', function () {
     const wrapper = shallow(<SignUpCard />);
-    expect(wrapper.find('h2').text()).toEqual(' Sign up');
+    expect(wrapper.find('h2').text()).toEqual(' Register');
 });
 });
 
@@ -61,7 +61,7 @@ describe('<SignUpCard/>', () => {
         const wrapper = setUp('Phiona', 'bas@gmail.com', 'Phiona', 1234567890, 1234567890);
         const input = wrapper.find('input').at(2);
         expect(input.props().name).toEqual('firstname');
-        expect(input.props().placeholder).toEqual('Phiona');
+        expect(input.props().placeholder).toEqual('Basenmera');
         expect(input.props().required).toEqual(true);
         expect(input.props().value).toEqual('Phiona');
         expect(input.simulate('click'));
@@ -72,7 +72,7 @@ describe('<SignUpCard/>', () => {
         const wrapper = setUp('Phiona', 'bas@gmail.com', 'Phiona', 1234567890, 1234567890);
         const input = wrapper.find('input').at(3);
         expect(input.props().name).toEqual('password');
-        expect(input.props().placeholder).toEqual('Basemera');
+        expect(input.props().placeholder).toEqual('password');
         expect(input.props().required).toEqual(true);
         expect(input.props().value).toEqual(1234567890);
         expect(input.props().type).toEqual('password');
@@ -84,7 +84,7 @@ describe('<SignUpCard/>', () => {
         const wrapper = setUp('Phiona', 'bas@gmail.com', 'Phiona', 1234567890, 1234567890);
         const input = wrapper.find('input').at(4);
         expect(input.props().name).toEqual('confirm_password');
-        expect(input.props().placeholder).toEqual('phiona');
+        expect(input.props().placeholder).toEqual('password');
         expect(input.props().required).toEqual(true);
         expect(input.props().value).toEqual(1234567890);
         expect(input.props().type).toEqual('password');

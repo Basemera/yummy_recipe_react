@@ -3,19 +3,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [![Build Status](https://travis-ci.org/Basemera/yummy_recipe_react.svg?branch=develop)](https://travis-ci.org/Basemera/yummy_recipe_react)
 # yummy-recipes-react
 
-This is the yummy recipes react frontend implementation. It consumes the newyummy-api.
+This is the yummy recipes react frontend implementation. It consumes the basemera-recipes API.
 Yummy recipes app is an application that allows users to create, save, delete and update recipes thus keeping track of awesome food recipes.
 ## Installation and Running
 ### Requirements
-- You first need to have the newyummy-api installed. See installation details [here](https://github.com/hadijahkyampeire/newyummy_api) and API documentation and Live production follow this [API Link](https://hadijahyummyrecipe-api.herokuapp.com/apidocs/)
+- You first need to have the basemera-recipes API installed. See installation details [here](https://github.com/Basemera/recipe_api)
 
 - NodeJs 
 - A package manager e.g. yarn or npm
 
 ### Clone the repository
 ```
-$ git clone https://github.com/hadijahkyampeire/Yummy_Reactjs_frontend
-$ cd yummyrecipes-react
+$ git clone https://github.com/Basemera/yummy_recipe_react
+$ cd yummy_recipe_react
 ```
 
 ## Installing dependancies
@@ -64,4 +64,4 @@ $ npm test -- -coverage or
 $yarn test --coverage -u
 ```
 ## Test Live App
-- [Yummy Recipes React App](https://hadijahz-recipes-react.herokuapp.com/)
+- [Yummy Recipes React App](https://basemera-recipes-ever.herokuapp.com/)

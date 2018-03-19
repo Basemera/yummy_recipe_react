@@ -3,7 +3,7 @@ import toastr from 'toastr';
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import AddCategory from './add_category';
+import AddCategory from './addCategory';
 import {
     deleteCategory,
     getCategories,

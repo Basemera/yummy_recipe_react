@@ -1,8 +1,8 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
-import ViewRecipes from '../../components/recipes/view_recipes';
-import AddRecipes from '../../components/recipes/add_recipes';
+import ViewRecipes from '../../components/recipes/viewRecipes';
+import AddRecipe from '../../components/recipes/addRecipe';
 
 describe('Test View recipe component views all recipes', () => {
     const props = {
@@ -117,7 +117,7 @@ describe('Test View recipe component views all recipes', () => {
 
     // eslint-disable-next-line
     it('should render <ViewRecipes /> component', () => {
-        const wrapper = shallow(<AddRecipes />); // eslint-disable-line
+        const wrapper = shallow(<AddRecipe />); // eslint-disable-line
         expect(wrapper.length).toEqual(1); // eslint-disable-line
     });
     // });
