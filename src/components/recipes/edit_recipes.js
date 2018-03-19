@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { notify } from 'react-notify-toast';
 import toastr from 'toastr';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { editRecipes } from '../../api_wrapper/recipes';
 
 /**
@@ -12,70 +10,103 @@ class EditRecipe extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipe_name: this.props.match.params.recipe_name,
-            recipe_id: this.props.match.params.recipe_id,
+            recipe_name: this.props.match.params.recipeName,
+            recipe_id: this.props.match.params.recipeId,
             successfuledit: false,
             description: this.props.match.params.description,
-        }
+            category: this.props.match.params.category,
+        };
     }
-    handleInputChange = (event) => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value })
 
-    }
-    onClick = event => {
+    onClick = (event) => {
         event.preventDefault();
-        const { recipe_name, description } = this.state;
         const category = this.props.match.params.category;
-        const recipe_id = this.props.match.params.recipe_id;
-            editRecipes(category, recipe_id, {recipe_name:this.state.recipe_name, description:this.state.description}
-            )
+        const recipe_id = this.props.match.params.recipeId;
+        const recipe_name = this.props.match.params.recipeName;
+        const description = this.props.match.params.description;
+        editRecipes(category, recipe_id, {
+            recipe_name: this.state.recipe_name,
+            description: this.state.description,
+        })
             .then((response) => {
-                console.log(category);
-                this.props.history.push(`/view-recipes/${category}`)
-                this.setState({ successfuledit: true })
-                toastr.success(response.data.message)
+                this.props.history.push(`/view-recipes/${category}`);
+                this.setState({ successfuledit: true });
+                toastr.success(response.data.message);
             })
             .catch((error) => {
-                toastr.error(error.response.data.message)
-                console.log(error.response.data.message);
+                toastr.error(error.response.data.message);
             });
-    }
+    };
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    };
+
+    cancel = (category) => {
+        this.props.history.push(`/view-recipes/${category}`);
+    };
 
     render() {
-        const { recipe_name, recipe_id, description, category } = this.state
+        console.log(this.props.match.params);
         return (
             <div>
                 <div className="container">
                     <div className="row">
-                        <div className='jumbotron'>
+                        <div className="jumbotron">
+                            {/* <p> Edit Recipe</p> */}
 
-                            <p> Edit Recipe</p>
-
-                            <form id="editrecipe" className="form-inline" onSubmit={this.onClick} name="edit-recipe">
-
-                                <div className="form-group" >
-                                    <input className="form-group" id="recipe-name" name="recipe_name" value={this.state.recipe_name} required  placeholder="recipe name" onChange={this.handleInputChange} />
+                            <form
+                                id="editrecipe"
+                                className="form-inline editcategory-form"
+                                onSubmit={this.onClick}
+                                name="edit-recipe"
+                            >
+                                <div className="form-group">
+                                    <input
+                                        className="form-group"
+                                        id="recipe-name"
+                                        name="recipe_name"
+                                        value={this.state.recipe_name}
+                                        required
+                                        placeholder="recipe name"
+                                        onChange={this.handleInputChange}
+                                    />
                                 </div>
                                 <div>
-                                    {/* <label className="control-label col-sm-4" >Description:  </label> */}
-                                    <input className="form-group" id="description" name="description" value={this.state.description} required placeholder="description" onChange={this.handleInputChange} />
+                                    <input
+                                        className="form-group"
+                                        id="description"
+                                        name="description"
+                                        value={this.state.description}
+                                        required
+                                        placeholder="description"
+                                        onChange={this.handleInputChange}
+                                    />
                                 </div>
 
-                                <div className="col-sm-offset-5 col-sm-5">
-                                    <button type="submit" className="btn btn-success">Edit</button>
+                                <div className="form-group editing">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-success"
+                                    >
+                                        Edit
+                                    </button>
+                                    <Link
+                                        onClick={this.cancel}
+                                        to="#"
+                                        className="btn btn-success"
+                                    >
+                                        Cancel
+                                    </Link>
                                 </div>
-
-
                             </form>
                         </div>
-
                     </div>
                 </div>
-
-            </div>);
+            </div>
+        );
     }
-
-};
+}
 
 export default EditRecipe;

@@ -45,7 +45,7 @@ exports[`Test Edit recipe component edits recipes renders the edit recipe form a
             />
           </div>
           <div
-            className="col-sm-offset-5 col-sm-5"
+            className="form-group editing"
           >
             <button
               className="btn btn-success"
@@ -53,6 +53,27 @@ exports[`Test Edit recipe component edits recipes renders the edit recipe form a
             >
               Edit
             </button>
+            <Link
+              className="btn btn-success"
+              onClick={[Function]}
+              replace={false}
+              to="#"
+            >
+              Cancel
+            </Link>
+          </div>
+          // 
+          <div
+            className="col-sm-offset-5 col-sm-5"
+          >
+            //     
+            <button
+              className="btn btn-success"
+              type="submit"
+            >
+              Edit
+            </button>
+            // 
           </div>
         </form>
       </div>
