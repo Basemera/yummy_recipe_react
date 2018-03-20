@@ -197,7 +197,7 @@ label.control-label {
   height: auto;
   top: 0;
   left: 0;
-  margin-top:-77px;
+  margin-top: -77px;
 }
 
 .no-categories {
@@ -491,6 +491,11 @@ p {
   margin-left: -2rem;
 }
 
+.row edit-recipes {
+  margin-left: 126px;
+  margin-right: 120px;
+}
+
 .recipes {
   /* margin-left: -97px;
   width: 100%; */
@@ -546,8 +551,8 @@ a.btn.btn-info {
 .editing {
   /* margin-bottom: -91px; */
   margin-right: -24px;
-  margin-left: 85px;
-  margin-top: 19px !important;
+  margin-left: -1px;
+  margin-top: 2px !important;
 }
 
 ul {
@@ -562,5 +567,9 @@ ul {
   border: 1px solid #e5e5e5;
   border-radius: 0.25rem;
   width: 251px !important;
+}
+
+.editing-form {
+  width: 40%;
 }
 /*  */

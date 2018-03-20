@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 [![Coverage Status](https://coveralls.io/repos/github/Basemera/yummy_recipe_react/badge.svg?branch=develop)](https://coveralls.io/github/Basemera/yummy_recipe_react?branch=develop)
 [![Build Status](https://travis-ci.org/Basemera/yummy_recipe_react.svg?branch=develop)](https://travis-ci.org/Basemera/yummy_recipe_react)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c97e3355444943728e770c598f3bb3c0)](https://www.codacy.com/app/Basemera/yummy_recipe_react?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Basemera/yummy_recipe_react&amp;utm_campaign=Badge_Grade)
 # yummy-recipes-react
 
 This is the yummy recipes react frontend implementation. It consumes the basemera-recipes API.
