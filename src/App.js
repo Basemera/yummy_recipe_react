@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import './App.css';
 import HomeView from './components/homeView';
 import SignUp from './components/signUp';
-import LogIn from './components/logIn';
+import LogIn from './components/login';
 import ViewCategories from './components/categories/viewCategories';
 import AddCategory from './components/categories/addCategory';
 import EditCategory from './components/categories/editCategory';

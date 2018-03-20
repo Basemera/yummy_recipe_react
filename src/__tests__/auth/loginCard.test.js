@@ -1,6 +1,6 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import Login from '../../components/login'
+import LogIn from '../../components/login'
 import loginCard from '../../components/loginCard'
 import { shallow , mount } from 'enzyme';
 import {MemoryRouter, Route} from 'react-router-dom';
