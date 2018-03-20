@@ -3,7 +3,8 @@ import { MemoryRouter, Route } from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import { ViewCategories, CategoryToRender } from '../../components/categories/viewCategories';
+import ViewCategories from '../../components/categories/viewCategories';
+import CategoryToRender from '../../components/categories/viewCategories';
 import AddCategory from '../../components/categories/addCategory';
 
 

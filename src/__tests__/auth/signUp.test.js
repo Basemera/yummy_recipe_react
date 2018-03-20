@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import SignUp from '../../components/signup';
 import SignUpCard from '../../components/signUpCard';
 
-Enzyme.configure({ adapter: new Adapter() });
+// Enzyme.configure({ adapter: new Adapter() });
 
 const setUp = (username, email, firstname, password, confirm_password) => {
     const props = {
