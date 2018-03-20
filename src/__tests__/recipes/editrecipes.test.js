@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import '../../setupTests';
-import EditRecipe from '../../components/recipes/edit_recipes';
+import EditRecipe from '../../components/recipes/editRecipe';
 
 const setUp = (recipeName, description, category) => {
     const props = {

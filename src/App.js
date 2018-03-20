@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import './App.css';
-import HomeView from './components/home';
-import SignUp from './components/signup';
+import HomeView from './components/homeView';
+import SignUp from './components/signUp';
 import LogIn from './components/login';
-import ViewCategories from './components/categories/view_categories';
-import AddCategory from './components/categories/add_category';
-import EditCategory from './components/categories/edit_category';
+import ViewCategories from './components/categories/viewCategories';
+import AddCategory from './components/categories/addCategory';
+import EditCategory from './components/categories/editCategory';
 import DeleteCategory from './components/categories/delete_category';
-import ViewRecipes from './components/recipes/view_recipes';
-import AddRecipe from './components/recipes/add_recipes';
-import EditRecipe from './components/recipes/edit_recipes';
+import ViewRecipes from './components/recipes/viewRecipes';
+import AddRecipe from './components/recipes/addRecipe';
+import EditRecipe from './components/recipes/editRecipe';
 import NotFound from './components/404';
 import Footer from './components/footer';
 import './css/style.css';
@@ -35,7 +35,7 @@ class App extends Component {
             loggedin: false,
         });
         clearToken();
-        // this.props.history.push('/login')
+        
     };
 
     loginUser = () => {

@@ -23,7 +23,6 @@
         "indent": ["error", 4],
         "quotes": [1, "single"],
         "no-mixed-operators": "off",
-        "prefer-arrow-callback": "warn",
         "prefer-const": "warn",
         "object-curly-spacing": ["error", "always"],
         "linebreak-style": "off",
@@ -49,7 +48,13 @@
         "jsx-a11y/no-autofocus":"off",
         "camelcase":"off",
         "max-len":"off",
+        "prefer-arrow-callback":"off",
+        "func-names":"off",
         "no-unused-vars":"off",
+        "no-shadow":"off",
+        "no-use-before-define":"off",
+        "class-methods-use-this":"off",
+        "no-param-reassign":"off",
         "jsx-a11y/anchor-is-valid": "off",
         "jsx-a11y/href-no-hash": "off"
     }

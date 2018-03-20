@@ -1,7 +1,7 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount } from 'enzyme';
-import AddRecipes from '../../components/recipes/add_recipes'
+import AddRecipe from '../../components/recipes/addRecipe';
 
 const setUp = (recipe_name, description, category) => {
     const props = {
@@ -9,39 +9,39 @@ const setUp = (recipe_name, description, category) => {
         description,
         category,
         handleInputChange: () => {
-    
+
         },
         onClick: () => {
-    
+
         },
     };
-    return shallow(<AddRecipes {...props}/>)
-    }
+    return shallow(<AddRecipe {...props} />);
+};
 
-    describe("Test Add recipe component adds recipes to a category", () => {
-        const event={
-            target:{
-                recipe_name:"",
-                description:"",
-                category:""
-            },
-            preventDefault: () => {
-    
-            },
+describe('Test Add recipe component adds recipes to a category', () => {
+    const event = {
+        target: {
+            recipe_name: '',
+            description: '',
+            category: '',
+        },
+        preventDefault: () => {
 
-            handleInputChange: () => {
+        },
 
-            }
-        }
+        handleInputChange: () => {
 
-        const wrapper = setUp('duck', 'this is', 1)
+        },
+    };
+
+    const wrapper = setUp('duck', 'this is', 1);
     it('has recipe name field', () => {
         const input = wrapper.find('input').at(0);
-        wrapper.find('#recipe-name').simulate('change', { target: { name: 'recipe_name', value: 'duck' } });
+        wrapper.find('#recipe_name').simulate('change', { target: { name: 'recipe_name', value: 'duck' } });
         expect(input.props().name).toEqual('recipe_name');
         expect(input.props().required).toEqual(true);
-        expect(wrapper.state('recipe_name')).toEqual('duck')
-    })
+        expect(wrapper.state('recipe_name')).toEqual('duck');
+    });
 
     it('has description field', () => {
         const input = wrapper.find('input').at(1);
@@ -49,23 +49,22 @@ const setUp = (recipe_name, description, category) => {
         expect(input.props().name).toEqual('description');
         expect(input.props().required).toEqual(true);
         expect(wrapper.state('description')).toEqual('this is');
-    })
+    });
 
     it('submit button', () => {
         const input = wrapper.find('button').at(0);
         expect(input.props().type).toEqual('submit');
-      });
-    
-      it('Form exists', () => {
+    });
+
+    it('Form exists', () => {
         const input = wrapper.find('form').at(0);
-        expect(input.props().name).toEqual('add-recipe');
+        expect(input.props().name).toEqual('add-category');
         expect(input.simulate('click'));
-    
-    }) ;
+    });
 
     it('handles submit', () => {
-        const wrapper = mount(<AddRecipes />); 
-        wrapper.instance().onClick(event)
+        const wrapper = mount(<AddRecipe />);
+        wrapper.instance().onClick(event);
     });
 
     it('Handles input change', () => {
@@ -77,5 +76,4 @@ const setUp = (recipe_name, description, category) => {
         const input = wrapper.find('form').at(0);
         expect(input.simulate('click'));
     });
-
-    });
+});
