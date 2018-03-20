@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import toastr from 'toastr';
+import PropTypes from 'prop-types';
 import { logInUser } from '../api_wrapper/users';
 import LoginCard from './loginCard';
 import { setToken } from '../utils/authservice';
-import toastr from 'toastr';
-import PropTypes from 'prop-types';
 
 /**
  * Component to log in a user*.
