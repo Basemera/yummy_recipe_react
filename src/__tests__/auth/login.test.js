@@ -5,10 +5,11 @@ import { MemoryRouter, Route } from 'react-router-dom';
 import LogIn from '../../components/login';
 import loginCard from '../../components/loginCard';
 
-const setUp = (username, password) => {
+const setUp = (username, password, login) => {
     const props = {
         username,
         password,
+        login,
         handleInputChange: () => {},
         onClick: () => {},
     };
