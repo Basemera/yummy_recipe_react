@@ -35,7 +35,6 @@ class App extends Component {
             loggedin: false,
         });
         clearToken();
-        
     };
 
     loginUser = () => {

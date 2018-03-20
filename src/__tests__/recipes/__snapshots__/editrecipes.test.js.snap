@@ -6,13 +6,13 @@ exports[`Test Edit recipe component edits recipes renders the edit recipe form a
     className="container"
   >
     <div
-      className="row"
+      className="row edit-recipes"
     >
       <div
-        className="jumbotron"
+        className="jumbotron editing-form"
       >
         <form
-          className="form-inline editcategory-form"
+          className=" editcategory-form"
           id="editrecipe"
           name="edit-recipe"
           onSubmit={[Function]}
