@@ -37,7 +37,6 @@ class SignUp extends Component {
             confirm_password,
         })
             .then((response) => {
-                console.log(response.data);
                 toastr.success(response.data.message);
                 this.setState(
                     { loginSuccess: true },

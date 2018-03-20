@@ -48,7 +48,6 @@ class EditRecipe extends Component {
     };
 
     render() {
-        console.log(this.props.match.params);
         return (
             <div>
                 <div className="container">
