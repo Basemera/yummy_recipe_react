@@ -191,17 +191,13 @@ label.control-label {
 
 .view-categories-head {
   background: url("images/meal-plan-bg.jpg") no-repeat;
-  /* background-size: cover;
-  min-height: 100%;
-  margin-top: -13px; */
   min-height: 100%;
   min-width: 1024px;
   width: 537%;
   height: auto;
-  /* position: fixed; */
   top: 0;
   left: 0;
-  padding-top: -9px;
+  margin-top:-77px;
 }
 
 .no-categories {
