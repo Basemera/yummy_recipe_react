@@ -51,13 +51,13 @@ class EditRecipe extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className="row">
-                        <div className="jumbotron">
+                    <div className="row edit-recipes">
+                        <div className="jumbotron editing-form">
                             {/* <p> Edit Recipe</p> */}
 
                             <form
                                 id="editrecipe"
-                                className="form-inline editcategory-form"
+                                className=" editcategory-form"
                                 onSubmit={this.onClick}
                                 name="edit-recipe"
                             >
