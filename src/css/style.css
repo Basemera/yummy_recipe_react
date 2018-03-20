@@ -198,10 +198,10 @@ label.control-label {
   min-width: 1024px;
   width: 537%;
   height: auto;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
-  padding-top: 10px;
+  padding-top: -9px;
 }
 
 .no-categories {

@@ -51,11 +51,5 @@ it('should render <SignUpCard /> component', () => {
     const wrapper = shallow(<SignUp />)
     expect(wrapper.length).toEqual(1)
 }); 
-//   it('input should change state', () => {
-//       const wrapper = setUp('Phiona', 'bas@gmail.com', 'Phiona', 1234567890, 1234567890)
-//       console.log(wrapper)
-//       const input = wrapper.find('firstname').at(1);
-//     expect(input.state('firsname')).toEqual('Phiona')
-// });
 
 })
