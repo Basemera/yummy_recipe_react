@@ -74,11 +74,13 @@ class HomeView extends Component {
                             />
                             <div className="carousel-caption d-none d-md-block">
                                 <div className="capt">
-                                    <h5>Update your recipes</h5>
-                                    <p>
-                                        Found that magical ingredient edit your
-                                        recipe to include it
-                                    </p>
+                                    <div className="capt">
+                                        <h5>Update your recipes</h5>
+                                        <p>
+                                            Found that magical ingredient... edit your
+                                            recipe to include it
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
