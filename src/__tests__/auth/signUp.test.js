@@ -4,7 +4,7 @@ import { MemoryRouter, Route } from 'react-router-dom';
 import { Enzyme, mount, shallow } from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
-import SignUp from '../../components/signup';
+import SignUp from '../../components/signUp';
 import SignUpCard from '../../components/signUpCard';
 
 // Enzyme.configure({ adapter: new Adapter() });
