@@ -2,8 +2,12 @@ language: node_js
 node_js:
   - "8.9.4"
 
-script:
-  - npm test -- -u --coverage 
+cache:
+  directories:
+    - node_modules
+
+  script:
+  - yarn test -- -u --coverage 
 
 after_success:
   - coveralls < coverage/lcov.info
