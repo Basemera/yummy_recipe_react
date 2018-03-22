@@ -21,9 +21,8 @@ describe('<loginCard/>', () => {
         expect(wrapper.find('p')).toHaveLength(1);
     });
 
-    it('renders an h1 element', () => {
-        expect(wrapper.find('h1')).toHaveLength(0);
-        expect(wrapper.find('h1').text()).toEqual('Please sign in');
+    it('renders a button element', () => {
+        expect(wrapper.find('button')).toHaveLength(1);
     });
 
     it('has username field', () => {
