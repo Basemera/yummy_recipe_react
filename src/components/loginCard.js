@@ -8,7 +8,7 @@ const LoginCard = ({
 }) => (
     <div>
         <div className="container signup-bg-image ">
-            <div className="row">
+            <div className="row login-margin">
                 <div className="jumbotron signup-bg">
                     <h2 className="signup-heading"> Log in</h2>
 

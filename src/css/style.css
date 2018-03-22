@@ -498,6 +498,11 @@ p {
   margin-right: 120px;
 }
 
+.signup-margin{
+  margin-left: -16.9375rem;
+  margin-top: -2rem;
+}
+
 .recipes {
   margin-left: -307px;
   margin-top: -1rem;
@@ -575,5 +580,10 @@ ul {
 
 .sign-out {
   margin-left: 1324px;
+}
+
+.login-margin{
+  margin-left: -17.9375rem;
+  margin-top: -2rem;
 }
 /*  */

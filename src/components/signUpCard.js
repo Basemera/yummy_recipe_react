@@ -15,7 +15,7 @@ const SignUpCard = ({
 }) => (
     <div>
         <div className="container signup-bg-image ">
-            <div className="row">
+            <div className="row signup-margin">
                 <div className="jumbotron signup-bg">
                     <h2 className="signup-heading"> Signup</h2>
                     <p> Fill in the details and sign up to enjoy the app benefits</p>
