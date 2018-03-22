@@ -12,7 +12,7 @@ describe('<SignUpCard/>', function () {
 
     it('registers a user', function () {
         const wrapper = shallow(<SignUpCard />);
-        expect(wrapper.find('h2').text()).toEqual(' Register');
+        expect(wrapper.find('h2').text()).toEqual(' Signup');
     });
 });
 
@@ -74,7 +74,7 @@ describe('<SignUpCard/>', () => {
         );
         const input = wrapper.find('input').at(2);
         expect(input.props().name).toEqual('firstname');
-        expect(input.props().placeholder).toEqual('Basenmera');
+        expect(input.props().placeholder).toEqual('Basemera');
         expect(input.props().required).toEqual(true);
         expect(input.props().value).toEqual('Phiona');
         expect(input.simulate('click'));
