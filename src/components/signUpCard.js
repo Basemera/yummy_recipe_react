@@ -17,7 +17,7 @@ const SignUpCard = ({
         <div className="container signup-bg-image ">
             <div className="row">
                 <div className="jumbotron signup-bg">
-                    <h2 className="signup-heading"> Register</h2>
+                    <h2 className="signup-heading"> Signup</h2>
                     <p> Fill in the details and sign up to enjoy the app benefits</p>
 
                     <form
@@ -53,7 +53,7 @@ const SignUpCard = ({
                                 className="form-control"
                                 name="firstname"
                                 value={firstname}
-                                placeholder="Basenmera"
+                                placeholder="Basemera"
                                 onChange={handleInputChange}
                                 required
                             />
@@ -94,15 +94,13 @@ const SignUpCard = ({
                             </button>
                         </div>
                         Already signed up just
-                        <Link name="login" to="/login">
-                            {' '}
-                            Login
-                        </Link>
+                        <button className="btn btn-success submit-button">
+                            <Link name="login" to="/login">
+                                {' '}
+                                Login
+                            </Link>
+                        </button>
                     </form>
-                    {/* <div className="login-register">
-                        Already signed up just
-                        <Link name = "login" to="/login">  Login</Link>
-                    </div> */}
                 </div>
             </div>
         </div>

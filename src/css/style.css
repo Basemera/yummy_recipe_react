@@ -132,6 +132,7 @@ label.control-label {
 .signup-heading {
   text-align: center;
   padding-right: 135px;
+  margin-left: 121px;
 }
 
 .confirm-password {
@@ -150,7 +151,6 @@ label.control-label {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 1200px;
   margin-top: -14em;
 }
 
@@ -158,6 +158,8 @@ label.control-label {
   color: #212529;
   font-weight: 900;
   font-size: 20px;
+  margin-top: 135px;
+  margin-left: 254px;
 }
 
 .login-bg {
@@ -191,9 +193,9 @@ label.control-label {
 
 .view-categories-head {
   background: url("images/meal-plan-bg.jpg") no-repeat;
-  min-height: 100%;
+  height: 100% !important;
   min-width: 1024px;
-  width: 537%;
+  width: 100%;
   height: auto;
   top: 0;
   left: 0;
@@ -226,7 +228,7 @@ small {
   font-size: 30px;
   color: rgb(197, 43, 222);
   font-family: "Lobster", cursive;
-  margin-top: 1%;
+  margin-top: 5%;
 }
 .add-category {
   align-items: center;
@@ -234,23 +236,23 @@ small {
   width: fit-content;
   height: fit-content;
   margin-left: 400px;
-  margin-top: -138px;
+  margin-top: -115px;
 }
 
 p.categories-header.header {
-  margin-top: 1%;
+  margin-top: 12%;
   font-size: larger;
   margin-right: 23em !important;
 }
 
 .form-inline {
-  margin-left: 171px;
+  margin-left: 139px;
 }
 
 .search-form-recipes {
   margin-right: 472px;
   margin-top: 46px;
-  margin-left: -19em !important;
+  margin-left: -17em !important;
 }
 .addcategory-form {
   background: url("images/restaurant_icons.png") no-repeat;
@@ -331,7 +333,7 @@ input.username {
 
 .view-categories {
   margin-top: -48px;
-  margin-top: -7px;
+  margin-top: 7px;
 }
 
 .form-signin input[type="password"] {
@@ -355,7 +357,7 @@ input.username {
 
 .search-form {
   margin-right: 100px;
-  margin-top: -65px;
+  margin-top: -55px;
   margin-left: -31px;
   width: 300px;
 }
@@ -479,8 +481,8 @@ p {
   color: #212529;
 }
 .container {
-  margin-top: 135px;
-  margin-left: 353px;
+  margin-top: 119px;
+  margin-left: 283px;
 }
 .row {
   margin-left: -8.9375rem;
@@ -497,9 +499,7 @@ p {
 }
 
 .recipes {
-  /* margin-left: -97px;
-  width: 100%; */
-  margin-left: -364px;
+  margin-left: -307px;
   margin-top: -1rem;
   width: 90rem;
 }
@@ -571,5 +571,9 @@ ul {
 
 .editing-form {
   width: 40%;
+}
+
+.sign-out {
+  margin-left: 1324px;
 }
 /*  */

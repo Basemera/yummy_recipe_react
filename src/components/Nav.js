@@ -25,23 +25,19 @@ const Nav = props => (
                             </a>
 
                             <Link
-                                to="/register"
+                                to="/signup"
                                 id="signup"
                                 className="btn btn-primary"
                             >
                                 {' '}
                                 Signup
                             </Link>
-                            <Link
-                                to="/login"
-                                id="login"
-                                className="btn btn-primary"
-                            >
+                            <Link to="/login" id="login" className="btn btn-primary">
                                 Login
                             </Link>
                         </div>
                     ) : (
-                        <div>
+                        <div className="sign-out">
                             <Link
                                 className="nav-item nav-link"
                                 to="#"
@@ -54,9 +50,6 @@ const Nav = props => (
                         </div>
                     )}
                 </div>
-                {/* <div className="navbar-nav sign-out">
-                  <Link className="nav-item nav-link" to = "#" onClick={(event) => {props.logout(event)}}>Signout</Link>
-                </div> */}
             </div>
         </div>
     </nav>

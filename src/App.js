@@ -65,7 +65,7 @@ class App extends Component {
                         />
                         <Route
                             exact
-                            path="/register"
+                            path="/signup"
                             component={props => (
                                 <SignUp
                                     {...props}
