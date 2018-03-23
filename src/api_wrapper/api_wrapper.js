@@ -24,5 +24,4 @@ export const post = (url, data, config = null) =>
 export const put = (url, data, config = null) =>
     getInitialiseApi().put(url, data, config);
 
-export const del = (url, config = null) =>
-    getInitialiseApi().delete(url, config);
+export const del = (url, config = null) => getInitialiseApi().delete(url, config);

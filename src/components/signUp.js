@@ -44,7 +44,11 @@ class SignUp extends Component {
                 );
             })
             .catch((error) => {
-                toastr.error('Username and firstname cannot begin with numbers, email should have an @ and .com and password must be more than 9 characters');
+                let err = '';
+                for (const key of Object.keys(error.response.data.error)) {
+                    err = err + ' and ' + error.response.data.error[key];
+                }
+                toastr.error(err);
             });
         this.setState({
             username: '',
