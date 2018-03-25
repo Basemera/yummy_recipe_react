@@ -73,7 +73,7 @@ class EditRecipe extends Component {
                                     />
                                 </div>
                                 <div>
-                                    <input
+                                    <textarea
                                         className="form-group"
                                         id="description"
                                         name="description"

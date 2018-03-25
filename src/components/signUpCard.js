@@ -88,18 +88,19 @@ const SignUpCard = ({
                             <button
                                 type="submit"
                                 value="Sign up"
-                                className="btn btn-success submit-button"
+                                className="btn btn-dark"
                             >
                                 Submit
+                            </button><br />
+                            Already signed up just<br />
+                            <button className="btn btn-outline-dark ">
+                                <Link name="login" to="/login">
+                                    {' '}
+                                Login
+                                </Link>
                             </button>
                         </div>
-                        Already signed up just
-                        <button className="btn btn-success submit-button">
-                            <Link name="login" to="/login">
-                                {' '}
-                                Login
-                            </Link>
-                        </button>
+
                     </form>
                 </div>
             </div>

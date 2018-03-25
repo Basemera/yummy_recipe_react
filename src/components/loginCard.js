@@ -49,7 +49,7 @@ const LoginCard = ({
                             <button
                                 value="log in"
                                 type="submit"
-                                className="btn btn-success submit-button"
+                                className="btn btn-dark"
                             >
                                 Submit
                             </button>
