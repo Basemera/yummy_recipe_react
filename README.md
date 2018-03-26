@@ -65,4 +65,4 @@ $ npm test -- --coverage or
 $yarn test --coverage -u
 ```
 ## Test Live App
-- [Yummy Recipes React App](https://basemera-recipes-ever.herokuapp.com/)
+- [Yummy Recipes React App](https://myyummyrecipes.herokuapp.com/)
