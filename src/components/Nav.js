@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = props => (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar mynav fixed-top navbar-expand-lg navbar-dark">
         <div className="container">
             <button
                 className="navbar-toggler"
@@ -19,15 +19,18 @@ const Nav = props => (
                 <div className="navbar-nav">
                     {!props.loggedIn ? (
                         <div>
-                            <a className="nav-item nav-link" href="/">
+                            <a
+                                className="nav-item nav-link btn btn-outline-dark"
+                                href="/"
+                            >
                                 Home
                                 <span className="sr-only">(current)</span>
                             </a>
 
                             <Link
-                                to="/register"
+                                to="/signup"
                                 id="signup"
-                                className="btn btn-primary"
+                                className="btn btn-outline-dark"
                             >
                                 {' '}
                                 Signup
@@ -35,15 +38,15 @@ const Nav = props => (
                             <Link
                                 to="/login"
                                 id="login"
-                                className="btn btn-primary"
+                                className="btn btn-outline-dark"
                             >
                                 Login
                             </Link>
                         </div>
                     ) : (
-                        <div>
+                        <div className="sign-out">
                             <Link
-                                className="nav-item nav-link"
+                                className="btn btn-outline-dark"
                                 to="#"
                                 onClick={(event) => {
                                     props.logout(event);
@@ -54,9 +57,6 @@ const Nav = props => (
                         </div>
                     )}
                 </div>
-                {/* <div className="navbar-nav sign-out">
-                  <Link className="nav-item nav-link" to = "#" onClick={(event) => {props.logout(event)}}>Signout</Link>
-                </div> */}
             </div>
         </div>
     </nav>

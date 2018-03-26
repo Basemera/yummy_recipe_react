@@ -8,8 +8,6 @@ class HeaderView extends Component {
         <SignUp />;
     };
 
-    renderSignup() {}
-
     render() {
         return (
             <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -23,7 +21,7 @@ class HeaderView extends Component {
                                 Login <span className="sr-only">(current)</span>
                             </div>
                             <Link
-                                to="/register"
+                                to="/signup"
                                 id="signup"
                                 className="btn btn-primary"
                             >

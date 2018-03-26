@@ -18,12 +18,11 @@ const setUp = (username, password) => {
 describe('<loginCard/>', () => {
     const wrapper = shallow(<LoginCard />);
     it('renders a p element', () => {
-        expect(wrapper.find('p')).toHaveLength(2);
+        expect(wrapper.find('p')).toHaveLength(1);
     });
 
-    it('renders an h1 element', () => {
-        expect(wrapper.find('h1')).toHaveLength(1);
-        expect(wrapper.find('h1').text()).toEqual('Please sign in');
+    it('renders a button element', () => {
+        expect(wrapper.find('button')).toHaveLength(1);
     });
 
     it('has username field', () => {
@@ -40,7 +39,7 @@ describe('<loginCard/>', () => {
         const wrapper = shallow(<LoginCard />);
         const input = wrapper.find('input').at(1);
         expect(input.props().name).toEqual('password');
-        expect(input.props().placeholder).toEqual('Enter your Password');
+        expect(input.props().placeholder).toEqual('Enter your password');
         expect(input.props().required).toEqual(true);
         expect(input.simulate('click'));
         expect(input.simulate('change'));
@@ -54,7 +53,7 @@ describe('<loginCard/>', () => {
 
     it('Form exists', () => {
         const input = wrapper.find('form').at(0);
-        expect(input.props().name).toEqual('login');
+        expect(input.props().name).toEqual('sign-up');
         expect(input.simulate('submit'));
     });
 });

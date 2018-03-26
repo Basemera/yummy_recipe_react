@@ -25,16 +25,7 @@ class Paginator extends Component {
         for (let i = 1; i <= pages; i++) {
             pageId.push(<Pagination.Item>{i}</Pagination.Item>);
         }
-        return (
-            <Pagination>{pageId}</Pagination>
-            /* <Pagination
-                    bsSize="medium"
-                    items={this.state.total}
-                    activePage={this.state.currentPage}
-                    onSelect={this.handleSelect}>
-                    </Pagination>
-                */
-        );
+        return <Pagination>{pageId}</Pagination>;
     }
 }
 

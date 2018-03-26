@@ -48,7 +48,7 @@ class AddCategory extends Component {
         const { category_name } = this.state;
         return (
             <div>
-                <p> Add category</p>
+                <p> . </p>
 
                 <div className="row justify-content-center">
                     <form

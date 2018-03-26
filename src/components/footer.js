@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <footer className="fixed-bottom">
+                <footer className="fixed-bottom mynav">
                     <div className="container">
                         <span className="navbar-text ml-auto">
                             &copy; Basemera Yummy Recipes Inc All rights

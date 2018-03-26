@@ -22,6 +22,8 @@ body {
 
 .nav {
   margin-top: 2em;
+
+ 
 }
 
 .nav .urls {
@@ -42,6 +44,11 @@ a {
 h5 {
   margin-top: 2px;
   margin-left: 41px;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 #header {
@@ -132,6 +139,7 @@ label.control-label {
 .signup-heading {
   text-align: center;
   padding-right: 135px;
+  margin-left: 121px;
 }
 
 .confirm-password {
@@ -146,11 +154,10 @@ label.control-label {
 }
 
 #wrapper {
-  background: url("images/restaurant_icons.png") no-repeat;
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 1200px;
   margin-top: -14em;
 }
 
@@ -158,6 +165,8 @@ label.control-label {
   color: #212529;
   font-weight: 900;
   font-size: 20px;
+  margin-top: 135px;
+  margin-left: 254px;
 }
 
 .login-bg {
@@ -191,9 +200,9 @@ label.control-label {
 
 .view-categories-head {
   background: url("images/meal-plan-bg.jpg") no-repeat;
-  min-height: 100%;
+  height: 100% !important;
   min-width: 1024px;
-  width: 537%;
+  width: 100%;
   height: auto;
   top: 0;
   left: 0;
@@ -226,7 +235,7 @@ small {
   font-size: 30px;
   color: rgb(197, 43, 222);
   font-family: "Lobster", cursive;
-  margin-top: 1%;
+  margin-top: 5%;
 }
 .add-category {
   align-items: center;
@@ -234,23 +243,23 @@ small {
   width: fit-content;
   height: fit-content;
   margin-left: 400px;
-  margin-top: -138px;
+  margin-top: -115px;
 }
 
 p.categories-header.header {
-  margin-top: 1%;
+  margin-top: 12%;
   font-size: larger;
   margin-right: 23em !important;
 }
 
 .form-inline {
-  margin-left: 171px;
+  margin-left: 139px;
 }
 
 .search-form-recipes {
   margin-right: 472px;
   margin-top: 46px;
-  margin-left: -19em !important;
+  margin-left: -17em !important;
 }
 .addcategory-form {
   background: url("images/restaurant_icons.png") no-repeat;
@@ -331,7 +340,8 @@ input.username {
 
 .view-categories {
   margin-top: -48px;
-  margin-top: -7px;
+  margin-top: 7px;
+  margin-left: 95px;
 }
 
 .form-signin input[type="password"] {
@@ -355,7 +365,7 @@ input.username {
 
 .search-form {
   margin-right: 100px;
-  margin-top: -65px;
+  margin-top: -55px;
   margin-left: -31px;
   width: 300px;
 }
@@ -370,11 +380,11 @@ input.username {
 .recipes-view {
   background: url("images/meal-plan-bg.jpg") no-repeat;
   background-size: cover;
-  min-height: 100%;
+  min-height: 202px;
   margin-top: -136px;
-  padding-bottom: 550px;
-  margin-bottom: -454px;
+  padding-bottom: 100%;
   width: 100%;
+  height: 106%;
 }
 .recipe-card {
   margin-top: 10px;
@@ -405,20 +415,18 @@ input.username {
   font-weight: 100%;
   font-size: 1em;
   color: #212529;
-  background-color: #f7fafd69;
   height: 50%;
 }
 
 .capt h5 {
   font-weight: 100%;
   font-size: 1em;
-  color: #212529;
-  background-color: #f7fafd69;
+  color:white;
 }
 
 .sign-out {
   margin-right: 1000px;
-  margin-left: 100%;
+  margin-left: 40%;
   font-size: 1em;
   color: white;
 }
@@ -451,7 +459,7 @@ p {
 .card-block {
   padding: 0;
   margin-bottom: 0%;
-  background-color: #b6e85630;
+  background-color:#ffb4f828;
 }
 
 .fixed-bottom {
@@ -469,8 +477,13 @@ p {
 }
 .jumbotron {
   /* padding: 4rem 2rem; */
-  background-color: #f5b3e6;
-  -webkit-text-fill-color: black;
+  background-color: #ffb4f833;
+ 
+}
+.jumbotron p {
+  /* padding: 4rem 2rem; */
+color: black;
+ 
 }
 
 .test {
@@ -479,8 +492,8 @@ p {
   color: #212529;
 }
 .container {
-  margin-top: 135px;
-  margin-left: 353px;
+  margin-top: 119px;
+  margin-left: 283px;
 }
 .row {
   margin-left: -8.9375rem;
@@ -496,16 +509,20 @@ p {
   margin-right: 120px;
 }
 
+.signup-margin{
+  margin-left: -16.9375rem;
+  margin-top: -2rem;
+}
+
 .recipes {
-  /* margin-left: -97px;
-  width: 100%; */
-  margin-left: -364px;
+  margin-left: -307px;
   margin-top: -1rem;
   width: 90rem;
 }
-.bg-primary {
+.mynav {
   margin-top: -120px;
   margin-left: -271px;
+  background-color: #ff0081;
 }
 /* .col-6 {
   -webkit-box-flex: 0;
@@ -571,5 +588,14 @@ ul {
 
 .editing-form {
   width: 40%;
+}
+
+.sign-out {
+  margin-left: 1297px;
+}
+
+.login-margin{
+  margin-left: -17.9375rem;
+  margin-top: -2rem;
 }
 /*  */

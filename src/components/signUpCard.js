@@ -15,9 +15,9 @@ const SignUpCard = ({
 }) => (
     <div>
         <div className="container signup-bg-image ">
-            <div className="row">
+            <div className="row signup-margin">
                 <div className="jumbotron signup-bg">
-                    <h2 className="signup-heading"> Register</h2>
+                    <h2 className="signup-heading"> Signup</h2>
                     <p> Fill in the details and sign up to enjoy the app benefits</p>
 
                     <form
@@ -53,7 +53,7 @@ const SignUpCard = ({
                                 className="form-control"
                                 name="firstname"
                                 value={firstname}
-                                placeholder="Basenmera"
+                                placeholder="Basemera"
                                 onChange={handleInputChange}
                                 required
                             />
@@ -88,21 +88,20 @@ const SignUpCard = ({
                             <button
                                 type="submit"
                                 value="Sign up"
-                                className="btn btn-success submit-button"
+                                className="btn btn-dark"
                             >
                                 Submit
+                            </button><br />
+                            Already signed up just<br />
+                            <button className="btn btn-outline-dark ">
+                                <Link name="login" to="/login">
+                                    {' '}
+                                Login
+                                </Link>
                             </button>
                         </div>
-                        Already signed up just
-                        <Link name="login" to="/login">
-                            {' '}
-                            Login
-                        </Link>
+
                     </form>
-                    {/* <div className="login-register">
-                        Already signed up just
-                        <Link name = "login" to="/login">  Login</Link>
-                    </div> */}
                 </div>
             </div>
         </div>
