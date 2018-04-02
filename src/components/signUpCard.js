@@ -20,15 +20,14 @@ const SignUpCard = ({
                     <h2 className="signup-heading"> Signup</h2>
                     <p> Fill in the details and sign up to enjoy the app benefits</p>
 
-                    <form
-                        className="form-signup text-center"
-                        onSubmit={onClick}
-                        name="sign-up"
-                    >
+                    <form onSubmit={onClick} name="sign-up">
                         <div className="form-group">
-                            <label htmlFor="inputUsername">Username</label>
+                            <label>Username</label>
                             <input
+                                type="text"
                                 className="form-control"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
                                 name="username"
                                 value={username}
                                 placeholder="Basemera"
@@ -37,20 +36,27 @@ const SignUpCard = ({
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputEmail">Email</label>
+                            <label>Email</label>
                             <input
+                                type="email"
                                 className="form-control"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
                                 name="email"
                                 value={email}
-                                placeholder="basemera@example.com"
+                                placeholder="basemera@gmail.com"
                                 onChange={handleInputChange}
                                 required
                             />
                         </div>
+
                         <div className="form-group">
-                            <label htmlFor="inputFirst">Firstname</label>
+                            <label>First Name</label>
                             <input
+                                type="text"
                                 className="form-control"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
                                 name="firstname"
                                 value={firstname}
                                 placeholder="Basemera"
@@ -58,25 +64,26 @@ const SignUpCard = ({
                                 required
                             />
                         </div>
+
                         <div className="form-group">
-                            <label htmlFor="inputPassword">Password</label>
+                            <label>Password</label>
                             <input
-                                required
                                 type="password"
                                 className="form-control"
+                                id="exampleInputPassword1"
                                 name="password"
                                 value={password}
                                 placeholder="password"
                                 onChange={handleInputChange}
                             />
                         </div>
+
                         <div className="form-group">
-                            <label htmlFor="inputConfirmPassword">
-                                Confirm Password
-                            </label>
+                            <label>Confirm Password</label>
                             <input
                                 type="password"
                                 className="form-control"
+                                id="exampleInputPassword1"
                                 name="confirm_password"
                                 value={confirm_password}
                                 placeholder="password"
@@ -84,23 +91,14 @@ const SignUpCard = ({
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <button
-                                type="submit"
-                                value="Sign up"
-                                className="btn btn-dark"
-                            >
-                                Submit
-                            </button><br />
-                            Already signed up just<br />
-                            <button className="btn btn-outline-dark ">
-                                <Link name="login" to="/login">
-                                    {' '}
-                                Login
-                                </Link>
-                            </button>
-                        </div>
 
+                        <small id="emailHelp" className="form-text text-muted">
+                            We'll never share your information with anyone else.
+                        </small>
+
+                        <button type="submit" className="btn btn-primary">
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>

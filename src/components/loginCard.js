@@ -12,49 +12,39 @@ const LoginCard = ({
                 <div className="jumbotron signup-bg">
                     <h2 className="signup-heading"> Log in</h2>
 
-                    <form
-                        className="form-signup text-center"
-                        onSubmit={onClick}
-                        name="sign-up"
-                    >
+                    <form onSubmit={onClick} name="sign-up">
                         <div className="form-group">
-                            {/* <h1 className="h3 mb-3 font-weight-normal">
-                                Please log in
-                            </h1> */}
-                            <label htmlFor="inputEmail">Username</label>
+                            <label>Username</label>
                             <input
+                                type="text"
                                 className="form-control"
-                                placeholder="Enter your username"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
                                 name="username"
                                 value={username}
+                                placeholder="Basemera"
                                 onChange={handleInputChange}
                                 required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputPassword">Password</label>
-                            <input
-                                className="form-control"
-                                type="password"
-                                name="password"
-                                value={password}
-                                placeholder="Enter your password"
-                                onChange={handleInputChange}
-                                required
-                                autoFocus
                             />
                         </div>
 
                         <div className="form-group">
-                            <button
-                                value="log in"
-                                type="submit"
-                                className="btn btn-dark"
-                            >
-                                Submit
-                            </button>
-                            <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+                            <label>Password</label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="exampleInputPassword1"
+                                name="password"
+                                value={password}
+                                placeholder="password"
+                                onChange={handleInputChange}
+                            />
                         </div>
+
+                        <button type="submit" className="btn btn-primary">
+                            Submit
+                        </button>
+                        <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
                     </form>
                 </div>
             </div>

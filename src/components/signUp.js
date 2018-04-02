@@ -49,6 +49,7 @@ class SignUp extends Component {
                     err = err + ' and ' + error.response.data.error[key];
                 }
                 toastr.error(err);
+                
             });
         this.setState({
             username: '',
