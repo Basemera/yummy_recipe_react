@@ -129,6 +129,7 @@ label.control-label {
   font-size: 20px;
   /* marg÷in: 0 auto; */
   margin: 116px auto;
+  width:fit-content;
 }
 
 .register-info {
@@ -597,5 +598,14 @@ ul {
 .login-margin{
   margin-left: -17.9375rem;
   margin-top: -2rem;
+}
+
+.label-center{
+  margin-left: 281px;
+}
+
+.label-center-login{
+  margin-left: 115px;
+
 }
 /*  */

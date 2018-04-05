@@ -14,15 +14,15 @@ const SignUpCard = ({
     onClick,
 }) => (
     <div>
-        <div className="container signup-bg-image ">
-            <div className="row signup-margin">
+        {/* <div className="container signup-bg-image ">
+            <div className="row signup-margin"> */}
                 <div className="jumbotron signup-bg">
                     <h2 className="signup-heading"> Signup</h2>
                     <p> Fill in the details and sign up to enjoy the app benefits</p>
 
                     <form onSubmit={onClick} name="sign-up">
                         <div className="form-group">
-                            <label>Username</label>
+                            <label className="label-center">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -36,7 +36,7 @@ const SignUpCard = ({
                             />
                         </div>
                         <div className="form-group">
-                            <label>Email</label>
+                            <label className="label-center">Email</label>
                             <input
                                 type="email"
                                 className="form-control"
@@ -51,7 +51,7 @@ const SignUpCard = ({
                         </div>
 
                         <div className="form-group">
-                            <label>First Name</label>
+                            <label className="label-center">First Name</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -66,7 +66,7 @@ const SignUpCard = ({
                         </div>
 
                         <div className="form-group">
-                            <label>Password</label>
+                            <label className="label-center">Password</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -79,7 +79,7 @@ const SignUpCard = ({
                         </div>
 
                         <div className="form-group">
-                            <label>Confirm Password</label>
+                            <label className="label-center">Confirm Password</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -101,8 +101,8 @@ const SignUpCard = ({
                         </button>
                     </form>
                 </div>
-            </div>
-        </div>
+            {/* </div>
+        </div> */}
     </div>
 );
 export default SignUpCard;

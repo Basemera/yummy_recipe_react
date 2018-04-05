@@ -7,14 +7,14 @@ const LoginCard = ({
     username, password, handleInputChange, onClick,
 }) => (
     <div>
-        <div className="container signup-bg-image ">
-            <div className="row login-margin">
+        {/* <div className="container signup-bg-image ">
+            <div className="row login-margin"> */}
                 <div className="jumbotron signup-bg">
                     <h2 className="signup-heading"> Log in</h2>
 
                     <form onSubmit={onClick} name="sign-up">
                         <div className="form-group">
-                            <label>Username</label>
+                            <label className="label-center-login">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -29,7 +29,7 @@ const LoginCard = ({
                         </div>
 
                         <div className="form-group">
-                            <label>Password</label>
+                            <label className="label-center-login">Password</label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -47,8 +47,8 @@ const LoginCard = ({
                         <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
                     </form>
                 </div>
-            </div>
-        </div>
+            {/* </div>
+        </div> */}
     </div>
 );
 export default LoginCard;
