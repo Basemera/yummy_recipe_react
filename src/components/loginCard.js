@@ -10,11 +10,12 @@ const LoginCard = ({
         {/* <div className="container signup-bg-image ">
             <div className="row login-margin"> */}
                 <div className="jumbotron signup-bg">
-                    <h2 className="signup-heading"> Log in</h2>
+                    
 
                     <form onSubmit={onClick} name="sign-up">
+                    <h2 className="signup-heading"> Log in</h2>
                         <div className="form-group">
-                            <label className="label-center-login">Username</label>
+                            <label className="col-md-12 col-form-label text-center">Username</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -29,7 +30,7 @@ const LoginCard = ({
                         </div>
 
                         <div className="form-group">
-                            <label className="label-center-login">Password</label>
+                            <label className="col-md-12 col-form-label text-center">Password</label>
                             <input
                                 type="password"
                                 className="form-control"

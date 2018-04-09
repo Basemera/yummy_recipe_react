@@ -141,6 +141,7 @@ label.control-label {
   text-align: center;
   padding-right: 135px;
   margin-left: 121px;
+  margin-top: 76px;
 }
 
 .confirm-password {
@@ -433,7 +434,7 @@ input.username {
 }
 
 p {
-  margin-top: 0;
+  margin-top: 47px;
   margin-bottom: 1rem;
   color: #f5f5f5;
 }
