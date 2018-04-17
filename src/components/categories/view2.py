@@ -244,63 +244,80 @@ class ViewCategories extends Component {
         }
 
         return (
-            <div className="container-fluid">
-                <div className="row">
-                    <h4 className="col-sm-4 mt-5 ml-5"> Categories </h4>
-
-                    <form
-                        className="search-form"
-                        onSubmit={this.onSearch}
-                        name="search-category"
-                    >
-                        <input
-                            className="search-form"
-                            required
-                            id="category-name"
-                            type="text"
-                            name="category_name"
-                            value={this.state.category_name}
-                            onChange={this.handleInputChange}
-                            className="form-control mb-2 mr-sm-2"
-                            placeholder="Category name"
-                        />
-                        <button type="submit" className="btn btn-primary">
-                            Search
-                        </button>
-                    </form>
-                </div>
-
-                <div className=" mb-2 mr-sm-2 add-category">
-                    <AddCategory getCats={this.onClick} />
-                </div>
-
-                <div className="view-categories">
-                    <div className="view-categories-title center">
-                        <p>
-                            <Link to="/view-categories" onClick={this.onClick}>
-                                View all categories
-                            </Link>
-                        </p>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="view-categories">
-                        <div className="this">
-                            {this.state.categories.length ? (
-                                categoryitems
-                            ) : (
-                                <div
-                                    className="col-sm-2 offset-sm-5"
-                                    className="no-categories"
+            <div>
+                <div className="view-categories-head">
+                    <h4 className="categories-header-cat"> Categories </h4>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-6 search-form">
+                                <form
+                                    className="search-form"
+                                    onSubmit={this.onSearch}
+                                    name="search-category"
                                 >
-                                    <div className="alert alert-info" role="alert">
-                                        <strong>Ooops!</strong> There are no
-                                        categories to display. Please add some.
+                                    <input
+                                        className="search-form"
+                                        required
+                                        id="category-name"
+                                        type="text"
+                                        name="category_name"
+                                        value={this.state.category_name}
+                                        onChange={this.handleInputChange}
+                                        className="form-control mb-2 mr-sm-2"
+                                        placeholder="Category name"
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary"
+                                    >
+                                        Search
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div className=" mb-2 mr-sm-2 add-category">
+                                <AddCategory getCats={this.onClick} />
+                            </div>
+
+                            <div className="view-categories">
+                                <div className="view-categories-title center">
+                                    <p>
+                                        <Link
+                                            to="/view-categories"
+                                            onClick={this.onClick}
+                                        >
+                                            View all categories
+                                        </Link>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="view-categories">
+                                    <div className="this">
+                                        {this.state.categories.length ? (
+                                            categoryitems
+                                        ) : (
+                                            <div
+                                                className="col-sm-2 offset-sm-5"
+                                                className="no-categories"
+                                            >
+                                                <div
+                                                    className="alert alert-info"
+                                                    role="alert"
+                                                >
+                                                    <strong>Ooops!</strong> There are
+                                                    no categories to display. Please
+                                                    add some.
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div className="text-center">
+                                            <ul className="pagination">
+                                                {loadPagination}
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            )}
-                            <div className="text-center">
-                                <ul className="pagination">{loadPagination}</ul>
                             </div>
                         </div>
                     </div>
