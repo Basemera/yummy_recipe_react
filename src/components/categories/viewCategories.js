@@ -246,7 +246,7 @@ class ViewCategories extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <h4 className="col-sm-4 mt-5 ml-5"> Categories </h4>
+                    <h4 className="mt-5 pl-5"> Categories </h4>
 
                     <form
                         className="search-form"
